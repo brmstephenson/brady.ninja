@@ -1,5 +1,5 @@
 import Image from "next/image"
-import ThemeChanger from "@/app/ui/theme-changer/ThemeChanger"
+import ThemeChanger from "@/components/ui/theme-changer/ThemeChanger"
 
 export default function Home() {
   return (
