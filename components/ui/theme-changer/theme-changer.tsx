@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import { useTheme } from "next-themes"
+import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false)
@@ -17,14 +17,14 @@ const ThemeChanger = () => {
   }
 
   return (
-    <div className='bg-background text-primary-green'>
+    <div className="bg-background text-primary-green">
       The current theme is: {theme}
       <br />
-      <button onClick={() => setTheme("system")}>System</button>
+      <button onClick={() => setTheme('system')}>System</button>
       <br />
-      <button onClick={() => setTheme("light")}>Light Mode</button>
+      <button onClick={() => setTheme('light')}>Light Mode</button>
       <br />
-      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
     </div>
   )
 }
