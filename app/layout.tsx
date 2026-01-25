@@ -31,10 +31,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 font-sans dark:bg-black`}
       >
         <Providers>
-          <div>
+          <div className="flex w-screen p-4 gap-4">
             <LeftSidebar />
-            <Header />
-            {children}
+            <div>
+              <Header />
+              {children}
+            </div>
           </div>
         </Providers>
       </body>
