@@ -6,7 +6,7 @@ import {
   ResizablePanel,
   ResizableHandle,
 } from '@/app/components/ui/resizable'
-import { SidebarTrigger } from '@/app/components/ui/sidebar'
+import { SidebarTrigger, useSidebar } from '@/app/components/ui/sidebar'
 import type {
   Layout,
   PanelImperativeHandle,
@@ -21,10 +21,9 @@ export default function ResizableLayout({
   children: React.ReactNode
   defaultLayout?: Layout
 }) {
-  const [open, setOpen] = useState(true)
+  const { open, setOpen } = useSidebar()
   const sidebarPanelRef = useRef<PanelImperativeHandle>(null)
   const prevOpenRef = useRef(open)
-  const hasInitialLayoutRef = useRef(false)
 
   useEffect(() => {
     if (!sidebarPanelRef.current) return
@@ -64,15 +63,11 @@ export default function ResizableLayout({
           panelRef={sidebarPanelRef}
           collapsible
           collapsedSize={0}
+          minSize={100}
           onResize={(size: PanelSize) => {
-            // Ignore initial layout pass to avoid toggling open on mount
-            if (!hasInitialLayoutRef.current) {
-              hasInitialLayoutRef.current = true
-              return
-            }
-            if (size.asPercentage < 2 && open) {
+            if (size.asPercentage === 0 && open) {
               setOpen(false)
-            } else if (size.asPercentage > 2 && !open) {
+            } else if (size.asPercentage >= 100 && !open) {
               setOpen(true)
             }
           }}
@@ -81,7 +76,7 @@ export default function ResizableLayout({
             <span className="font-semibold">Sidebar</span>
           </div>
         </ResizablePanel>
-        <ResizableHandle />
+        <ResizableHandle withHandle />
         <ResizablePanel id="content" defaultSize={80}>
           <div className="flex h-full w-full items-center justify-center p-6">
             {children}
