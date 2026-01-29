@@ -67,7 +67,7 @@ export default function ResizableLayout({
           onResize={(size: PanelSize) => {
             if (size.asPercentage === 0 && open) {
               setOpen(false)
-            } else if (size.asPercentage >= 100 && !open) {
+            } else if (size.asPercentage >= 5 && !open) {
               setOpen(true)
             }
           }}
