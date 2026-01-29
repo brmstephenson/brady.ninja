@@ -1,30 +1,65 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
+import { Button } from '../button'
+import { Loader2, MoonIcon, SunIcon } from 'lucide-react'
+import { readCookieValue, writeCookieValue } from '@/app/lib/cookie'
 
-const ThemeChanger = () => {
+const VALID_THEMES = new Set(['light', 'dark', 'system'])
+
+const ThemeChanger = ({
+  cookieName = 'brady-theme',
+}: {
+  cookieName?: string
+}) => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const initializedFromCookieRef = useRef(false)
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
+  useEffect(() => {
+    if (!mounted || initializedFromCookieRef.current) return
+    initializedFromCookieRef.current = true
+
+    const cookieTheme = readCookieValue(cookieName)
+    if (!cookieTheme || !VALID_THEMES.has(cookieTheme)) return
+    if (cookieTheme !== theme) {
+      setTheme(cookieTheme)
+    }
+  }, [cookieName, mounted, setTheme, theme])
+
+  useEffect(() => {
+    if (!mounted || !initializedFromCookieRef.current) return
+    if (!theme || !VALID_THEMES.has(theme)) return
+    writeCookieValue(cookieName, theme)
+  }, [cookieName, mounted, theme])
+
   if (!mounted) {
-    return null
+    return (
+      <Button variant="ghost" className="p-2">
+        <Loader2 className="w-4 h-4 animate-spin" />
+      </Button>
+    )
   }
 
   return (
-    <div className="bg-background text-primary-green">
-      The current theme is: {theme}
-      <br />
-      <button onClick={() => setTheme('system')}>System</button>
-      <br />
-      <button onClick={() => setTheme('light')}>Light Mode</button>
-      <br />
-      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+    <div>
+      <Button
+        variant="ghost"
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        className="p-2"
+      >
+        {theme === 'dark' ? (
+          <SunIcon className="w-4 h-4" />
+        ) : (
+          <MoonIcon className="w-4 h-4" />
+        )}
+      </Button>
     </div>
   )
 }

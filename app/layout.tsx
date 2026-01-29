@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/app/components/ui/theme-changer/providers'
-import Header from '@/app/components/ui/header/header'
-import LeftSidebar from '@/app/components/ui/left-sidebar/left-sidebar'
+import ResizableLayout from '@/app/components/ui/resizable-layout'
+import type { Layout } from 'react-resizable-panels'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -20,23 +21,33 @@ export const metadata: Metadata = {
   description: "Brady Stephenson's personal website",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const cookieStore = await cookies()
+  const layoutCookie = cookieStore.get('brady-layout')?.value
+  let defaultLayout: Layout | undefined
+
+  if (layoutCookie) {
+    try {
+      defaultLayout = JSON.parse(decodeURIComponent(layoutCookie)) as Layout
+    } catch {
+      defaultLayout = undefined
+    }
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 font-sans dark:bg-black`}
       >
         <Providers>
-          <div className="flex p-4 gap-4">
-            <LeftSidebar />
-            <div className="w-full">
-              <Header />
+          <div className="flex flex-col h-screen w-screen">
+            <ResizableLayout defaultLayout={defaultLayout}>
               {children}
-            </div>
+            </ResizableLayout>
           </div>
         </Providers>
       </body>

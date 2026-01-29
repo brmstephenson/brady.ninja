@@ -1,8 +1,8 @@
-import tailwindConfig from "./tailwind.config"
+import tailwindConfig from './tailwind.config'
 
 const config = {
   plugins: {
-    "@tailwindcss/postcss": { tailwindConfig },
+    '@tailwindcss/postcss': { tailwindConfig },
   },
 }
 
