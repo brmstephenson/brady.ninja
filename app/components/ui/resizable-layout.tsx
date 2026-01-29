@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import {
   ResizablePanelGroup,
   ResizablePanel,
@@ -13,14 +13,42 @@ import type {
   PanelSize,
 } from 'react-resizable-panels'
 import ThemeChanger from '@/app/components/ui/theme-changer/theme-changer'
+import { useIsMobile } from '@/app/hooks/use-mobile'
+import AppSidebar from './app-sidebar/app-sidebar'
 
+interface ResizableLayoutProps {
+  children: React.ReactNode
+  defaultLayout?: Layout
+}
 export default function ResizableLayout({
   children,
   defaultLayout,
-}: {
-  children: React.ReactNode
-  defaultLayout?: Layout
-}) {
+}: ResizableLayoutProps) {
+  const isMobile = useIsMobile()
+
+  if (isMobile) {
+    return <MobileLayout>{children}</MobileLayout>
+  }
+  return <DesktopLayout defaultLayout={defaultLayout}>{children}</DesktopLayout>
+}
+
+function MobileLayout({ children }: ResizableLayoutProps) {
+  const { open, setOpen } = useSidebar()
+
+  return (
+    <div>
+      <header className="sticky top-0 left-0 flex items-center justify-between">
+        <SidebarTrigger onClick={() => setOpen(!open)} />
+        <h1>Brady Stephenson</h1>
+        <ThemeChanger cookieName="brady-theme" />
+      </header>
+      <AppSidebar />
+      <div>{children}</div>
+    </div>
+  )
+}
+
+function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
   const { open, setOpen } = useSidebar()
   const sidebarPanelRef = useRef<PanelImperativeHandle>(null)
   const prevOpenRef = useRef(open)
@@ -63,7 +91,8 @@ export default function ResizableLayout({
           panelRef={sidebarPanelRef}
           collapsible
           collapsedSize={0}
-          minSize={100}
+          maxSize="90%"
+          minSize="20%"
           onResize={(size: PanelSize) => {
             if (size.asPercentage === 0 && open) {
               setOpen(false)
