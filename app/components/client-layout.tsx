@@ -13,8 +13,9 @@ import type {
   PanelSize,
 } from 'react-resizable-panels'
 import { useIsMobile } from '@/app/hooks/use-mobile'
-import AppSidebar from './app-sidebar/app-sidebar'
-import Header from './header/header'
+import AppSidebar from './mobile-sidebar'
+import Header from '@/app/components/header'
+import PageList from './page-list'
 
 interface ResizableLayoutProps {
   children: React.ReactNode
@@ -95,9 +96,7 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
             }
           }}
         >
-          <div className="flex h-full items-center justify-center p-6">
-            <span className="font-semibold">Sidebar</span>
-          </div>
+          <PageList />
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel id="content" defaultSize={80}>

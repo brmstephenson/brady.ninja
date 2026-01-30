@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { Button } from '../button'
+import { Button } from '@/app/components/ui/button'
 import { Loader2, MoonIcon, SunIcon } from 'lucide-react'
 import { readCookieValue, writeCookieValue } from '@/app/lib/cookie'
 

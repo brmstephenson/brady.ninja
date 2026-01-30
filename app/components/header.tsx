@@ -1,5 +1,5 @@
-import { SidebarTrigger, useSidebar } from '../sidebar'
-import ThemeChanger from '../theme-changer/theme-changer'
+import { SidebarTrigger, useSidebar } from './ui/sidebar'
+import ThemeChanger from './theme-changer'
 
 export default function Header() {
   const { open, setOpen } = useSidebar()

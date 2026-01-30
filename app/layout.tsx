@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/app/providers'
-import ResizableLayout from '@/app/components/ui/resizable-layout'
+import ResizableLayout from '@/app/components/client-layout'
 import type { Layout } from 'react-resizable-panels'
 
 const geistSans = Geist({
