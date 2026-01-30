@@ -6,7 +6,7 @@ import {
   ResizablePanel,
   ResizableHandle,
 } from '@/app/components/ui/resizable'
-import { SidebarTrigger, useSidebar } from '@/app/components/ui/sidebar'
+import { useSidebar } from '@/app/components/ui/sidebar'
 import type {
   Layout,
   PanelImperativeHandle,
@@ -25,6 +25,10 @@ export default function ResizableLayout({
   defaultLayout,
 }: ResizableLayoutProps) {
   const isMobile = useIsMobile()
+
+  if (isMobile === null) {
+    return null
+  }
 
   if (isMobile) {
     return <MobileLayout>{children}</MobileLayout>
