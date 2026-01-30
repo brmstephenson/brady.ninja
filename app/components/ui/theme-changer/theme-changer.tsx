@@ -48,19 +48,15 @@ const ThemeChanger = ({
   }
 
   return (
-    <div>
-      <Button
-        variant="ghost"
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="p-2"
-      >
-        {theme === 'dark' ? (
-          <SunIcon className="w-4 h-4" />
-        ) : (
-          <MoonIcon className="w-4 h-4" />
-        )}
-      </Button>
-    </div>
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="p-2"
+    >
+      {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+      <span className="sr-only">Toggle Theme</span>
+    </Button>
   )
 }
 

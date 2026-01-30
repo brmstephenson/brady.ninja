@@ -12,9 +12,9 @@ import type {
   PanelImperativeHandle,
   PanelSize,
 } from 'react-resizable-panels'
-import ThemeChanger from '@/app/components/ui/theme-changer/theme-changer'
 import { useIsMobile } from '@/app/hooks/use-mobile'
 import AppSidebar from './app-sidebar/app-sidebar'
+import Header from './header/header'
 
 interface ResizableLayoutProps {
   children: React.ReactNode
@@ -33,15 +33,9 @@ export default function ResizableLayout({
 }
 
 function MobileLayout({ children }: ResizableLayoutProps) {
-  const { open, setOpen } = useSidebar()
-
   return (
     <div>
-      <header className="sticky top-0 left-0 flex items-center justify-between">
-        <SidebarTrigger onClick={() => setOpen(!open)} />
-        <h1>Brady Stephenson</h1>
-        <ThemeChanger cookieName="brady-theme" />
-      </header>
+      <Header />
       <AppSidebar />
       <div>{children}</div>
     </div>
@@ -70,11 +64,7 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
 
   return (
     <>
-      <header className="sticky top-0 left-0 flex items-center justify-between">
-        <SidebarTrigger onClick={() => setOpen(!open)} />
-        <h1>Brady Stephenson</h1>
-        <ThemeChanger cookieName="brady-theme" />
-      </header>
+      <Header />
       <ResizablePanelGroup
         id="main-layout"
         className="h-full w-full border"

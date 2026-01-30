@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { Providers } from '@/app/components/ui/theme-changer/providers'
+import { Providers } from '@/app/providers'
 import ResizableLayout from '@/app/components/ui/resizable-layout'
 import type { Layout } from 'react-resizable-panels'
 
@@ -40,6 +40,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      {/* <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head> */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 font-sans dark:bg-black`}
       >
