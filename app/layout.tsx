@@ -3,8 +3,8 @@ import { cookies } from 'next/headers'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/app/providers'
-import ResizableLayout from '@/app/components/client-layout'
 import type { Layout } from 'react-resizable-panels'
+import LayoutContent from '@/app/components/layout-content'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -48,9 +48,9 @@ export default async function RootLayout({
       >
         <Providers>
           <div className="flex flex-col h-screen w-screen">
-            <ResizableLayout defaultLayout={defaultLayout}>
+            <LayoutContent defaultLayout={defaultLayout}>
               {children}
-            </ResizableLayout>
+            </LayoutContent>
           </div>
         </Providers>
       </body>

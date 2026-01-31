@@ -10,30 +10,39 @@ import { Code } from 'lucide-react'
 export default function PageList() {
   return (
     <div>
-      <Accordion type="single" collapsible>
-        <CompactAccordionItem value="item-1">
-          <CompactAccordionTrigger>Pages</CompactAccordionTrigger>
+      <Accordion type="single" collapsible defaultValue="brady-ninja">
+        <CompactAccordionItem value="brady-ninja">
+          <CompactAccordionTrigger>Brady.ninja</CompactAccordionTrigger>
           <CompactAccordionContent>
-            <PageItem href="/" title="Home" />
-            <Accordion type="single" collapsible>
-              <CompactAccordionItem value="item-2">
-                <CompactAccordionTrigger>Games</CompactAccordionTrigger>
+            <Accordion type="single" collapsible defaultValue="pages">
+              <CompactAccordionItem value="pages">
+                <CompactAccordionTrigger>Pages</CompactAccordionTrigger>
                 <CompactAccordionContent>
-                  <PageItem href="/" title="Minesweeper" />
-                  <PageItem href="/" title="Conways Game of Life" />
-                </CompactAccordionContent>
-              </CompactAccordionItem>
-            </Accordion>
-            <Accordion type="single" collapsible>
-              <CompactAccordionItem value="item-2">
-                <CompactAccordionTrigger>Hobbies</CompactAccordionTrigger>
-                <CompactAccordionContent>
-                  <PageItem href="/" title="Mountain Biking" />
-                  <PageItem href="/" title="Fitness" />
-                  <PageItem href="/" title="Health" />
-                  <PageItem href="/" title="Travel" />
-                  <PageItem href="/" title="Gaming" />
-                  <PageItem href="/" title="Art" />
+                  <PageItem href="/" title="Home" />
+                  <PageItem href="/resume" title="Resume" />
+                  <Accordion type="single" collapsible>
+                    <CompactAccordionItem value="item-2">
+                      <CompactAccordionTrigger>Games</CompactAccordionTrigger>
+                      <CompactAccordionContent>
+                        <PageItem href="/minesweeper" title="Minesweeper" />
+                        <PageItem
+                          href="/conways-game-of-life"
+                          title="Conways Game of Life"
+                        />
+                      </CompactAccordionContent>
+                    </CompactAccordionItem>
+                  </Accordion>
+                  <Accordion type="single" collapsible>
+                    <CompactAccordionItem value="item-2">
+                      <CompactAccordionTrigger>Hobbies</CompactAccordionTrigger>
+                      <CompactAccordionContent>
+                        <PageItem href="/biking" title="Biking" />
+                        <PageItem href="/art" title="Art" />
+                        <PageItem href="/travel" title="Travel" />
+                        <PageItem href="/gaming" title="Gaming" />
+                      </CompactAccordionContent>
+                    </CompactAccordionItem>
+                  </Accordion>
                 </CompactAccordionContent>
               </CompactAccordionItem>
             </Accordion>

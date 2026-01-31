@@ -21,7 +21,7 @@ interface ResizableLayoutProps {
   children: React.ReactNode
   defaultLayout?: Layout
 }
-export default function ResizableLayout({
+export default function LayoutContent({
   children,
   defaultLayout,
 }: ResizableLayoutProps) {
