@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { Providers } from '@/app/providers'
+import { Providers } from '@/app/utils/providers'
 import type { Layout } from 'react-resizable-panels'
 import LayoutContent from '@/app/components/layout-content'
 

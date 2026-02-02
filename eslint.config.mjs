@@ -11,6 +11,7 @@ const eslintConfig = defineConfig([
     rules: {
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'never'],
+      '@next/next/no-html-link-for-pages': 'off',
     },
   },
   // Override default ignores of eslint-config-next.

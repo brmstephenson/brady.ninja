@@ -6,6 +6,8 @@ import {
   CompactAccordionTrigger,
 } from './ui/accordion'
 import { Code } from 'lucide-react'
+import { useOpenPages } from '../hooks/use-open-pages'
+import { pages } from '../utils/routes'
 
 export default function PageList() {
   return (
@@ -18,31 +20,37 @@ export default function PageList() {
               <CompactAccordionItem value="pages">
                 <CompactAccordionTrigger>Pages</CompactAccordionTrigger>
                 <CompactAccordionContent>
-                  <PageItem href="/" title="Home" />
-                  <PageItem href="/resume" title="Resume" />
-                  <Accordion type="single" collapsible>
-                    <CompactAccordionItem value="item-2">
-                      <CompactAccordionTrigger>Games</CompactAccordionTrigger>
-                      <CompactAccordionContent>
-                        <PageItem href="/minesweeper" title="Minesweeper" />
-                        <PageItem
-                          href="/conways-game-of-life"
-                          title="Conways Game of Life"
-                        />
-                      </CompactAccordionContent>
-                    </CompactAccordionItem>
-                  </Accordion>
-                  <Accordion type="single" collapsible>
-                    <CompactAccordionItem value="item-2">
-                      <CompactAccordionTrigger>Hobbies</CompactAccordionTrigger>
-                      <CompactAccordionContent>
-                        <PageItem href="/biking" title="Biking" />
-                        <PageItem href="/art" title="Art" />
-                        <PageItem href="/travel" title="Travel" />
-                        <PageItem href="/gaming" title="Gaming" />
-                      </CompactAccordionContent>
-                    </CompactAccordionItem>
-                  </Accordion>
+                  {pages.map((page) => {
+                    return page?.items?.length ? (
+                      <Accordion
+                        key={page.title}
+                        type="single"
+                        collapsible
+                        defaultValue={page.title}
+                      >
+                        <CompactAccordionItem value={page.title}>
+                          <CompactAccordionTrigger>
+                            {page.title}
+                          </CompactAccordionTrigger>
+                          <CompactAccordionContent>
+                            {page?.items?.map((item) => (
+                              <PageItem
+                                key={item.title}
+                                href={item.href}
+                                title={item.title}
+                              />
+                            ))}
+                          </CompactAccordionContent>
+                        </CompactAccordionItem>
+                      </Accordion>
+                    ) : (
+                      <PageItem
+                        key={page.title}
+                        href={page.href ?? ''}
+                        title={page.title}
+                      />
+                    )
+                  })}
                 </CompactAccordionContent>
               </CompactAccordionItem>
             </Accordion>
@@ -54,10 +62,18 @@ export default function PageList() {
 }
 
 function PageItem({ href, title }: { href: string; title: string }) {
+  const { openPages, setOpenPages } = useOpenPages()
+
   return (
     <Link
       href={href}
       className="flex items-center gap-2 hover:bg-accent p-2 truncate"
+      onClick={() => {
+        if (openPages.some((p) => p.href === href)) {
+          return
+        }
+        setOpenPages([...openPages, { title, href }])
+      }}
     >
       <Code className="text-orange-500 size-3" />
       {title}.html

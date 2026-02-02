@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { Button } from '@/app/components/ui/button'
 import { Loader2, MoonIcon, SunIcon } from 'lucide-react'
-import { readCookieValue, writeCookieValue } from '@/app/lib/cookie'
+import { readCookieValue, writeCookieValue } from '@/app/utils/cookie'
 
 const VALID_THEMES = new Set(['light', 'dark', 'system'])
 

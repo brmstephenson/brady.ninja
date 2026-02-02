@@ -16,6 +16,7 @@ import { useIsMobile } from '@/app/hooks/use-mobile'
 import AppSidebar from './mobile-sidebar'
 import Header from '@/app/components/header'
 import PageList from './page-list'
+import OpenPages from './open-pages'
 
 interface ResizableLayoutProps {
   children: React.ReactNode
@@ -42,6 +43,7 @@ function MobileLayout({ children }: ResizableLayoutProps) {
     <div>
       <Header />
       <AppSidebar />
+      <OpenPages />
       <div>{children}</div>
     </div>
   )
@@ -100,7 +102,8 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel id="content" defaultSize={80}>
-          <div className="flex h-full w-full items-center justify-center p-6">
+          <OpenPages />
+          <div className="flex h-full w-full items-center justify-center p-6 bg-background dark:bg-background-dark">
             {children}
           </div>
         </ResizablePanel>

@@ -6,7 +6,7 @@ export default function Header() {
   const { open, setOpen } = useSidebar()
 
   return (
-    <header className="sticky top-0 left-0 flex items-center justify-between bg-background dark:bg-background-dark">
+    <header className="sticky top-0 left-0 flex items-center justify-between bg-background dark:bg-background-dark p-2">
       <SidebarTrigger onClick={() => setOpen(!open)} />
       <Link href="/">
         <h1>Brady Stephenson</h1>
