@@ -1,7 +1,7 @@
 'use client'
 import { ThemeProvider } from 'next-themes'
 import { SidebarProvider } from '../components/ui/sidebar'
-import { OpenPagesProvider } from '../hooks/use-open-pages'
+import { OpenPagesProvider } from './use-open-pages'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

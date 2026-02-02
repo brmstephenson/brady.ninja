@@ -40,9 +40,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* <head>
+      <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head> */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 font-sans dark:bg-black`}
       >
