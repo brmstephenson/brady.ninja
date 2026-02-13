@@ -1,4 +1,8 @@
+@layer theme, base, components, utilities;
 @import "tailwindcss";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 @plugin "tailwindcss-animate";
 @import "tw-animate-css";
@@ -39,6 +43,11 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-editor-background: var(--editor-background);
+  --color-editor-foreground: var(--editor-foreground);
+  --color-editor-line-number: var(--editor-line-number);
+  --color-editor-accent-1: var(--editor-accent-1);
+  --color-editor-accent-2: var(--editor-accent-2);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -81,6 +90,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --editor-background: #ededed;
+  --editor-foreground: #ca6702;
+  --editor-line-number: #ee9b00;
+  --editor-accent-1: #0a9396;
+  --editor-accent-2: oklch(0.696 0.17 162.48);
 }
 
 .dark {
@@ -115,6 +129,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --editor-background: #001219;
+  --editor-foreground: #0A9396;
+  --editor-line-number: #005F73;
+  --editor-accent-1: #CA6702;
+  --editor-accent-2: oklch(0.696 0.17 162.48);
 }
 
 @layer base {

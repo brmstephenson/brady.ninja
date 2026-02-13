@@ -8,8 +8,13 @@ import {
 import { Code } from 'lucide-react'
 import { useOpenPages } from '../hooks/use-open-pages'
 import { pages } from '../utils/routes'
+import { useIsMobile } from '../hooks/use-mobile'
+import { useSidebar } from './ui/sidebar'
 
 export default function PageList() {
+  const isMobile = useIsMobile()
+  const { toggleSidebar } = useSidebar()
+
   return (
     <div>
       <Accordion type="single" collapsible defaultValue="brady-ninja">
@@ -29,7 +34,13 @@ export default function PageList() {
                         defaultValue={page.title}
                       >
                         <CompactAccordionItem value={page.title}>
-                          <CompactAccordionTrigger>
+                          <CompactAccordionTrigger
+                            onClick={() => {
+                              if (isMobile) {
+                                toggleSidebar()
+                              }
+                            }}
+                          >
                             {page.title}
                           </CompactAccordionTrigger>
                           <CompactAccordionContent>

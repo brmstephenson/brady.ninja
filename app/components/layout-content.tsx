@@ -17,6 +17,7 @@ import AppSidebar from './mobile-sidebar'
 import Header from '@/app/components/header'
 import PageList from './page-list'
 import OpenPages from './open-pages'
+import Footer from '@/app/components/footer'
 
 interface ResizableLayoutProps {
   children: React.ReactNode
@@ -40,12 +41,13 @@ export default function LayoutContent({
 
 function MobileLayout({ children }: ResizableLayoutProps) {
   return (
-    <div>
+    <>
       <Header />
       <AppSidebar />
       <OpenPages />
-      <div>{children}</div>
-    </div>
+      <div className="h-full">{children}</div>
+      <Footer />
+    </>
   )
 }
 
@@ -70,47 +72,49 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
   }, [open])
 
   return (
-    <>
+    <div className="h-screen w-screen">
       <Header />
-      <ResizablePanelGroup
-        id="main-layout"
-        className="h-full w-full border"
-        defaultLayout={defaultLayout}
-        onLayoutChanged={(layout) => {
-          document.cookie = `brady-layout=${encodeURIComponent(
-            JSON.stringify(layout)
-          )}; path=/; max-age=31536000`
-        }}
-      >
-        <ResizablePanel
-          id="sidebar"
-          defaultSize={20}
-          panelRef={sidebarPanelRef}
-          collapsible
-          collapsedSize={0}
-          maxSize="90%"
-          minSize="20%"
-          onResize={(size: PanelSize) => {
-            if (size.asPercentage === 0 && open) {
-              setOpen(false)
-            } else if (size.asPercentage >= 5 && !open) {
-              setOpen(true)
-            }
+      <div className="h-[calc(100%-90px)]">
+        <ResizablePanelGroup
+          id="main-layout"
+          defaultLayout={defaultLayout}
+          onLayoutChanged={(layout) => {
+            document.cookie = `brady-layout=${encodeURIComponent(
+              JSON.stringify(layout)
+            )}; path=/; max-age=31536000`
           }}
         >
-          <PageList />
-        </ResizablePanel>
-        <ResizableHandle withHandle />
-        <ResizablePanel id="content" defaultSize={80}>
-          <OpenPages />
-          <div className="flex h-full w-full items-center justify-center p-6 bg-background dark:bg-background-dark">
-            {children}
-          </div>
-        </ResizablePanel>
-      </ResizablePanelGroup>
-      <footer className="sticky bottom-0 left-0">
-        <p>Footer</p>
-      </footer>
-    </>
+          <ResizablePanel
+            id="sidebar"
+            defaultSize={20}
+            className="overflow-y-auto"
+            panelRef={sidebarPanelRef}
+            collapsible
+            collapsedSize={0}
+            maxSize="90%"
+            minSize="20%"
+            onResize={(size: PanelSize) => {
+              if (size.asPercentage === 0 && open) {
+                setOpen(false)
+              } else if (size.asPercentage >= 5 && !open) {
+                setOpen(true)
+              }
+            }}
+          >
+            <PageList />
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel id="content" defaultSize={80}>
+            <div className="sticky top-0 left-0">
+              <OpenPages />
+            </div>
+            <div className="w-full h-[calc(100%-30px)] overflow-auto">
+              {children}
+            </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </div>
+      <Footer />
+    </div>
   )
 }

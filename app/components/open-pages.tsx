@@ -16,13 +16,15 @@ export default function OpenPages() {
   }
 
   return (
-    <div className="flex items-center flex-wrap border-b">
+    <div className="flex items-center flex-wrap bg-background dark:bg-background-dark">
       {openPages.map((page) => (
         <Link
           key={page.title}
           className={cn(
-            'flex items-center gap-1 border-l border-b flex-grow-4 justify-between p-1 text-sm',
-            isActive(page.href) ? 'bg-background dark:bg-background-dark' : ''
+            'flex items-center gap-1 border-l border-b-2 flex-grow-4 justify-between p-1 text-sm',
+            isActive(page.href)
+              ? 'bg-editor-background text-editor-foreground border-b-editor-accent-1'
+              : ''
           )}
           href={page.href}
         >
@@ -30,19 +32,22 @@ export default function OpenPages() {
             <Code className="text-orange-500 size-4" />
             {page.title}.html
           </div>
-          {pathname !== page.href && (
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hover:cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault()
-                setOpenPages(openPages.filter((p) => p.title !== page.title))
-              }}
-            >
-              <X />
-            </Button>
-          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            className={cn(
+              'hover:cursor-pointer',
+              isActive(page.href)
+                ? 'pointer-events-none visibility-hidden opacity-0'
+                : ''
+            )}
+            onClick={(e) => {
+              e.preventDefault()
+              setOpenPages(openPages.filter((p) => p.title !== page.title))
+            }}
+          >
+            <X />
+          </Button>
         </Link>
       ))}
     </div>
