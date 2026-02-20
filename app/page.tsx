@@ -96,7 +96,7 @@ export default function Home() {
                 <li>Cursor</li>
                 <li>Vite</li>
                 <li>Vitest</li>
-                <li>Github</li>
+                <li>Git</li>
                 <li>React testing library</li>
                 <li>Rspec</li>
               </ul>
@@ -109,6 +109,7 @@ export default function Home() {
                 <li>Prisma</li>
                 <li>ExpressJS</li>
                 <li>Figma</li>
+                <li>Vercel</li>
               </ul>
             </div>
           </div>
