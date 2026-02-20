@@ -368,6 +368,120 @@ export default function ColorPalette() {
     },
   ]
 
+  const customColorGroups: {
+    title: string
+    colors: { name: string; className: string }[]
+  }[] = [
+    {
+      title: 'Base',
+      colors: [
+        { name: 'background', className: 'bg-background' },
+        { name: 'foreground', className: 'bg-foreground' },
+      ],
+    },
+    {
+      title: 'Card',
+      colors: [
+        { name: 'card', className: 'bg-card' },
+        { name: 'card-foreground', className: 'bg-card-foreground' },
+      ],
+    },
+    {
+      title: 'Popover',
+      colors: [
+        { name: 'popover', className: 'bg-popover' },
+        { name: 'popover-foreground', className: 'bg-popover-foreground' },
+      ],
+    },
+    {
+      title: 'Primary',
+      colors: [
+        { name: 'primary', className: 'bg-primary' },
+        { name: 'primary-foreground', className: 'bg-primary-foreground' },
+      ],
+    },
+    {
+      title: 'Secondary',
+      colors: [
+        { name: 'secondary', className: 'bg-secondary' },
+        { name: 'secondary-foreground', className: 'bg-secondary-foreground' },
+      ],
+    },
+    {
+      title: 'Muted',
+      colors: [
+        { name: 'muted', className: 'bg-muted' },
+        { name: 'muted-foreground', className: 'bg-muted-foreground' },
+      ],
+    },
+    {
+      title: 'Accent',
+      colors: [
+        { name: 'accent', className: 'bg-accent' },
+        { name: 'accent-foreground', className: 'bg-accent-foreground' },
+      ],
+    },
+    {
+      title: 'Destructive',
+      colors: [{ name: 'destructive', className: 'bg-destructive' }],
+    },
+    {
+      title: 'Border / Input / Ring',
+      colors: [
+        { name: 'border', className: 'bg-border' },
+        { name: 'input', className: 'bg-input' },
+        { name: 'ring', className: 'bg-ring' },
+      ],
+    },
+    {
+      title: 'Chart',
+      colors: [
+        { name: 'chart-1', className: 'bg-chart-1' },
+        { name: 'chart-2', className: 'bg-chart-2' },
+        { name: 'chart-3', className: 'bg-chart-3' },
+        { name: 'chart-4', className: 'bg-chart-4' },
+        { name: 'chart-5', className: 'bg-chart-5' },
+      ],
+    },
+    {
+      title: 'Sidebar',
+      colors: [
+        { name: 'sidebar', className: 'bg-sidebar' },
+        { name: 'sidebar-foreground', className: 'bg-sidebar-foreground' },
+        { name: 'sidebar-primary', className: 'bg-sidebar-primary' },
+        {
+          name: 'sidebar-primary-foreground',
+          className: 'bg-sidebar-primary-foreground',
+        },
+        { name: 'sidebar-accent', className: 'bg-sidebar-accent' },
+        {
+          name: 'sidebar-accent-foreground',
+          className: 'bg-sidebar-accent-foreground',
+        },
+        { name: 'sidebar-border', className: 'bg-sidebar-border' },
+        { name: 'sidebar-ring', className: 'bg-sidebar-ring' },
+      ],
+    },
+    {
+      title: 'Editor',
+      colors: [
+        { name: 'background', className: 'bg-editor-background' },
+        { name: 'foreground', className: 'bg-editor-foreground' },
+        { name: 'line-number', className: 'bg-editor-line-number' },
+        { name: 'accent-1', className: 'bg-editor-accent-1' },
+        {
+          name: 'accent-1-foreground',
+          className: 'bg-editor-accent-1-foreground',
+        },
+        { name: 'accent-2', className: 'bg-editor-accent-2' },
+        {
+          name: 'accent-2-foreground',
+          className: 'bg-editor-accent-2-foreground',
+        },
+      ],
+    },
+  ]
+
   return (
     <main className="mx-auto flex w-full h-full max-w-6xl flex-col gap-8 px-6 py-10 overflow-auto">
       <header className="flex flex-col gap-2">
@@ -376,6 +490,31 @@ export default function ColorPalette() {
           Tailwind default colors with every shade from 50 to 950.
         </p>
       </header>
+
+      <section className="flex flex-col gap-8">
+        <h2 className="text-lg font-medium">Custom theme colors</h2>
+        <p className="text-sm text-muted-foreground -mt-6">
+          Colors defined in globals.css (respect light/dark mode).
+        </p>
+        {customColorGroups.map((group) => (
+          <div key={group.title} className="flex flex-col gap-3">
+            <h3 className="text-sm font-medium text-muted-foreground">
+              {group.title}
+            </h3>
+            <div className="grid grid-cols-2 gap-3 text-muted-foreground font-mono text-xs sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {group.colors.map(({ name, className }) => (
+                <div key={name} className="flex flex-col gap-1.5">
+                  <div
+                    aria-label={`${group.title} ${name}`}
+                    className={`h-14 w-full rounded-md border border-black/10 shadow-sm ${className}`}
+                  />
+                  <span>{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
 
       <section className="flex flex-col gap-4">
         <div className="hidden min-w-[720px] grid-cols-[120px_repeat(11,1fr)] gap-3 text-xs text-muted-foreground sm:grid">
