@@ -71,9 +71,10 @@ export default function Home() {
               bracketClassName="text-editor-accent-2-foreground"
             >
               I&apos;m a frontend leaning full stack software engineer with 12+
-              years of experience, specializing in React, Next.js, Tailwind CSS,
-              and TypeScript. I&apos;m also a dad that has too many hobbies,
-              latest being mountain biking and making art.
+              years of experience, specializing in React, Remix, TypeScript,
+              Tailwind CSS, ShadCN UI, Ruby on Rails, and PostgreSQL. I&apos;m
+              also a dad that has too many hobbies, latest being mountain biking
+              and making art.
             </SyntaxHighlightedTag>
           </p>
         </div>
@@ -81,7 +82,7 @@ export default function Home() {
           <div className="px-10 w-full mx-auto text-center flex xl:gap-24 md:gap-12 gap-4 xl:flex-row flex-col items-center justify-center">
             <div className="bg-editor-background text-editor-foreground py-4 px-10 rounded-lg border-editor-accent-1 border-2 md:w-1/3 w-1/2">
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
-                Skills
+                Work
               </h3>
               <ul>
                 <li>React</li>
@@ -107,7 +108,7 @@ export default function Home() {
             </div>
             <div className="bg-editor-background text-editor-foreground py-4 px-10 rounded-lg border-editor-accent-1 border-2 md:w-1/3 w-1/2">
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
-                Familar
+                Play
               </h3>
               <ul>
                 <li>Next.JS</li>
