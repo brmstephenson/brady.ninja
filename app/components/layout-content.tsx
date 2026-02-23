@@ -18,6 +18,7 @@ import Header from '@/app/components/header'
 import PageList from './page-list'
 import OpenPages from './open-pages'
 import Footer from '@/app/components/footer'
+import { useOpenPages } from '@/app/hooks/use-open-pages'
 
 interface ResizableLayoutProps {
   children: React.ReactNode
@@ -40,13 +41,15 @@ export default function LayoutContent({
 }
 
 function MobileLayout({ children }: ResizableLayoutProps) {
+  const { openPages } = useOpenPages()
+
   return (
     <>
       <Header className="fixed w-full top-0 left-0" />
       <AppSidebar />
       <div className="h-[calc(100%-90px)] mt-15">
         <OpenPages />
-        <div>{children}</div>
+        <div>{openPages.length === 0 ? <EmptyState /> : children}</div>
       </div>
       <Footer />
     </>
@@ -55,6 +58,7 @@ function MobileLayout({ children }: ResizableLayoutProps) {
 
 function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
   const { open, setOpen } = useSidebar()
+  const { openPages } = useOpenPages()
   const sidebarPanelRef = useRef<PanelImperativeHandle>(null)
   const prevOpenRef = useRef(open)
 
@@ -111,12 +115,23 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
               <OpenPages />
             </div>
             <div className="w-full h-[calc(100%-40px)] overflow-auto">
-              {children}
+              {openPages.length === 0 ? <EmptyState /> : children}
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>
       <Footer />
+    </div>
+  )
+}
+
+function EmptyState() {
+  return (
+    <div className="flex h-full flex-col items-center justify-center bg-editor-background text-editor-foreground text-center gap-4">
+      <h1 className="text-2xl font-bold">No pages are open.</h1>
+      <p className="text-lg text-editor-accent-2">
+        No pages are open. Pick a page from the sidebar to get started.
+      </p>
     </div>
   )
 }

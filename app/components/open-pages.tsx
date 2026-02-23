@@ -5,14 +5,36 @@ import { useOpenPages } from '../hooks/use-open-pages'
 import { Button } from './ui/button'
 import { cn } from '../lib/cn'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function OpenPages() {
   const { openPages, setOpenPages } = useOpenPages()
   const pathname = usePathname()
+  const router = useRouter()
 
-  const isActive = (href: string) => {
-    return pathname === href
+  const isActive = (href: string) => pathname === href
+
+  const handleClose = (
+    e: React.MouseEvent,
+    page: { title: string; href: string }
+  ) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    const pageIndex = openPages.findIndex((p) => p.title === page.title)
+    const newPages = openPages.filter((p) => p.title !== page.title)
+
+    if (isActive(page.href)) {
+      if (newPages.length > 0) {
+        const nextIndex =
+          pageIndex < newPages.length ? pageIndex : newPages.length - 1
+        router.push(newPages[nextIndex].href)
+      } else {
+        router.push('/')
+      }
+    }
+
+    setOpenPages(newPages)
   }
 
   return (
@@ -21,7 +43,7 @@ export default function OpenPages() {
         <Link
           key={page.title}
           className={cn(
-            'flex items-center gap-1 border-l border-b-2 flex-grow-4 justify-between p-1 text-sm',
+            'group flex items-center gap-1 border-l border-b-2 flex-grow-4 justify-between p-1 text-sm',
             isActive(page.href)
               ? 'bg-editor-background text-editor-foreground border-b-editor-foreground'
               : ''
@@ -38,13 +60,10 @@ export default function OpenPages() {
             className={cn(
               'hover:cursor-pointer',
               isActive(page.href)
-                ? 'pointer-events-none visibility-hidden opacity-0'
-                : ''
+                ? ''
+                : 'opacity-0 group-hover:opacity-100'
             )}
-            onClick={(e) => {
-              e.preventDefault()
-              setOpenPages(openPages.filter((p) => p.title !== page.title))
-            }}
+            onClick={(e) => handleClose(e, page)}
           >
             <X />
           </Button>
