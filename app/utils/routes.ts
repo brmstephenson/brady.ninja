@@ -7,7 +7,7 @@ export const pages: { title: string; href?: string; items?: OpenPage[] }[] = [
       title: 'Games',
       items: [
         { href: '/minesweeper', title: 'Minesweeper' },
-        { href: '/conways-game-of-life', title: 'Conways Game of Life' },
+        // { href: '/conways-game-of-life', title: 'Conways Game of Life' },
       ],
     },
     // {
