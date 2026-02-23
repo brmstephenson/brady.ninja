@@ -1,6 +1,5 @@
 import { cn } from '@/app/lib/cn'
 import Image from 'next/image'
-import PdfSvg from '@/app/components/ui/pdf-svg'
 import { DownloadIcon } from 'lucide-react'
 
 const experiences = [
