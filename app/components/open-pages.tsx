@@ -23,13 +23,13 @@ export default function OpenPages() {
           className={cn(
             'flex items-center gap-1 border-l border-b-2 flex-grow-4 justify-between p-1 text-sm',
             isActive(page.href)
-              ? 'bg-editor-background text-editor-foreground border-b-editor-accent-1'
+              ? 'bg-editor-background text-editor-foreground border-b-editor-foreground'
               : ''
           )}
           href={page.href}
         >
           <div className="flex items-center gap-2 p-2">
-            <Code className="text-orange-500 size-4" />
+            <Code className="text-editor-accent-1 size-4" />
             {page.title}.html
           </div>
           <Button

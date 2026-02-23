@@ -42,10 +42,12 @@ export default function LayoutContent({
 function MobileLayout({ children }: ResizableLayoutProps) {
   return (
     <>
-      <Header />
+      <Header className="fixed w-full top-0 left-0" />
       <AppSidebar />
-      <OpenPages />
-      <div className="h-full">{children}</div>
+      <div className="h-[calc(100%-90px)] mt-15">
+        <OpenPages />
+        <div>{children}</div>
+      </div>
       <Footer />
     </>
   )
@@ -108,7 +110,7 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
             <div className="sticky top-0 left-0">
               <OpenPages />
             </div>
-            <div className="w-full h-[calc(100%-30px)] overflow-auto">
+            <div className="w-full h-[calc(100%-40px)] overflow-auto">
               {children}
             </div>
           </ResizablePanel>

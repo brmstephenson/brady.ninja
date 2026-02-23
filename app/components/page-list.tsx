@@ -78,7 +78,7 @@ function PageItem({ href, title }: { href: string; title: string }) {
   return (
     <Link
       href={href}
-      className="flex items-center gap-2 hover:bg-accent p-2 truncate"
+      className="flex items-center gap-2 hover:bg-accent p-2"
       onClick={() => {
         if (openPages.some((p) => p.href === href)) {
           return
@@ -86,8 +86,10 @@ function PageItem({ href, title }: { href: string; title: string }) {
         setOpenPages([...openPages, { title, href }])
       }}
     >
-      <Code className="text-orange-500 size-3" />
-      {title}.html
+      <Code className="text-editor-accent-1 w-3 h-3 shrink-0" />
+      <span className="w-full">
+        <span>{title}</span>.html
+      </span>
     </Link>
   )
 }
