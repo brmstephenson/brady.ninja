@@ -14,7 +14,7 @@ export default function Home() {
               Brady Stephenson
             </SyntaxHighlightedTag>
           </h1>
-          <p className="xl:text-2xl md:text-xl text-lg">
+          <p className="xl:text-2xl md:text-xl text-lg text-editor-accent-2">
             <SyntaxHighlightedTag tag="p">
               Software Engineer Frontend Focused hobbyist, and dad
             </SyntaxHighlightedTag>
@@ -84,7 +84,7 @@ export default function Home() {
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
                 Work
               </h3>
-              <ul>
+              <ul className="text-editor-accent-2">
                 <li>React</li>
                 <li>Remix</li>
                 <li>Tailwind CSS</li>
@@ -97,7 +97,7 @@ export default function Home() {
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
                 Tools
               </h3>
-              <ul>
+              <ul className="text-editor-accent-2">
                 <li>Cursor</li>
                 <li>Vite</li>
                 <li>Vitest</li>
@@ -110,7 +110,7 @@ export default function Home() {
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
                 Play
               </h3>
-              <ul>
+              <ul className="text-editor-accent-2">
                 <li>Next.JS</li>
                 <li>Node.JS</li>
                 <li>Prisma</li>

@@ -9,7 +9,7 @@ export default function Header({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        'sticky w-full top-0 left-0 flex items-center justify-between bg-background dark:bg-background-dark border-b dark:border-border p-2',
+        'sticky z-50 w-full top-0 left-0 flex items-center justify-between bg-background border-b dark:border-border p-2',
         className
       )}
     >

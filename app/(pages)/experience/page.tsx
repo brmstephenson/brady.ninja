@@ -108,10 +108,8 @@ export default function Experience() {
             className="rounded-full w-24 h-24"
           />
           <div>
-            <div className="flex items-center gap-2 justify-between">
-              <h1 className="text-3xl md:text-4xl font-bold mb-3">
-                Experience
-              </h1>
+            <div className="flex items-center gap-2 justify-between mb-3">
+              <h1 className="text-3xl md:text-4xl font-bold">Experience</h1>
               <a
                 href="/Brady Stephenson - Design Pickle.pdf"
                 target="_blank"
