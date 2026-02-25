@@ -4,7 +4,7 @@ import { DownloadIcon } from 'lucide-react'
 
 const experiences = [
   {
-    dateRange: '2022 — 2026',
+    dateRange: '2022 — Present',
     title:
       'Engineering Manager / Lead Frontend Engineer / Senior Frontend Engineer',
     company: 'Design Pickle',
