@@ -4,29 +4,50 @@ import { DownloadIcon } from 'lucide-react'
 
 const experiences = [
   {
-    dateRange: '2022 — Present',
-    title:
-      'Engineering Manager / Lead Frontend Engineer / Senior Frontend Engineer',
+    dateRange: '2025 — Present',
+    title: 'Engineering Manager',
     company: 'Design Pickle',
     location: 'Scottsdale, AZ',
     bullets: [
-      'Managed and mentored a team of 3 frontend engineers while remaining hands-on in production code.',
-      'Directed transition of infrastructure from Heroku to AWS, modernizing deployment pipelines and saving costs.',
-      'Guided frontend migration from Rails to Remix, optimizing developer workflows.',
-      'Led frontend UI/UX modernization using React and Tailwind.',
-      'Established a Storybook UI library for cross-team design reference.',
-      'Promoted from Senior Frontend Engineer → Lead Frontend Engineer → Engineering Manager.',
+      'Manage and mentor a team of 3 frontend engineers, leading sprint planning, architecture, and execution across 6 major platform initiatives.',
+      'Directed infrastructure migration from Heroku to AWS, reducing annual cloud spend by $30k+.',
+      'Led frontend modernization and rebrand by migrating legacy Rails/React views to Remix + Vite, improving build performance by 25% and local development speed by 90%.',
+      'Introduced standardized AI-assisted engineering workflows via Cursor, improving iteration speed while maintaining code quality and consistency.',
+      'Remained hands-on in production code while leading technical direction and system design.',
     ],
     tags: [
       'React',
       'Remix',
+      'Vite',
       'TypeScript',
       'Tailwind',
       'Ruby on Rails',
       'AWS',
-      'Docker',
-      'Storybook',
+      'Cursor AI',
     ],
+  },
+  {
+    dateRange: '2024',
+    title: 'Lead Frontend Software Engineer',
+    company: 'Design Pickle',
+    location: 'Scottsdale, AZ',
+    bullets: [
+      'Owned frontend hiring and onboarding, directly shaping team composition, technical standards, and long-term platform direction.',
+      'Served as frontend technical lead across major product initiatives spanning core workflows, platform refactors, and feature launches.',
+      'Partnered closely with product and design leadership to deliver roadmap features used by 2,200 monthly active customers.',
+    ],
+    tags: ['React', 'Remix', 'TypeScript', 'Tailwind', 'Ruby on Rails'],
+  },
+  {
+    dateRange: '2022 — 2023',
+    title: 'Senior Frontend Software Engineer',
+    company: 'Design Pickle',
+    location: 'Scottsdale, AZ',
+    bullets: [
+      'First frontend engineer hired to architect and deliver a new React application.',
+      'Designed and implemented the initial frontend architecture, component system, and tooling.',
+    ],
+    tags: ['React', 'TypeScript', 'Tailwind', 'Storybook'],
   },
   {
     dateRange: '2019 — 2022',
@@ -34,12 +55,12 @@ const experiences = [
     company: 'Beam Dental',
     location: 'Columbus, OH',
     bullets: [
-      'Developed front-end applications using React and Styled Components.',
-      'Developed backend services using Rails APIs.',
+      'Developed front-end views using ReactJS, Styled Components, HTML5, CSS3, and jQuery.',
+      'Developed backend applications using Rails APIs and views.',
       'Built AWS Lambda functions for file parsing.',
-      'Led team efforts to deliver critical projects on schedule.',
-      'Co-organized Front-End Working Group to share best practices.',
-      'Led client performance working group to identify and resolve optimizations.',
+      'Led team efforts to deliver projects under aggressive timelines.',
+      'Co-organized Front-End Working Group to share trends, best practices, and demos.',
+      'Organized a client performance working group to identify issues and define follow-up work.',
     ],
     tags: [
       'React',
@@ -55,10 +76,10 @@ const experiences = [
     company: 'Insight Digital Innovations / Cardinal Solutions Group',
     location: 'Columbus, OH',
     bullets: [
-      'Led development team, focusing on delivery and career growth.',
-      'Developed client front-end applications using Angular and Bootstrap.',
-      'Presented technical topics at internal team meetings.',
-      'Taught Angular workshop for Columbus Web Groups meetup.',
+      'Led and supported a development team, including career growth and delivery expectations.',
+      'Developed front-end applications using HTML5, CSS3, JavaScript, AngularJS, Angular 2+, jQuery, and Bootstrap at client sites.',
+      'Presented technical and non-technical topics at team meetings and internal groups.',
+      'Taught Angular at a weekend workshop for the Columbus Web Groups meetup.',
     ],
     tags: ['Angular', 'AngularJS', 'JavaScript', 'Bootstrap', 'jQuery'],
   },
@@ -69,10 +90,9 @@ const experiences = [
     location: 'Milford, OH',
     bullets: [
       'Developed IBM MobileFirst hybrid mobile applications.',
-      'Built front-end features using AngularJS and Bootstrap.',
-      'Integrated iBeacon technology for location-based messaging.',
+      'Built front-end features using HTML5, CSS3, JavaScript, AngularJS, jQuery, and Bootstrap.',
     ],
-    tags: ['AngularJS', 'JavaScript', 'IBM MobileFirst', 'iBeacon'],
+    tags: ['AngularJS', 'JavaScript', 'IBM MobileFirst', 'Bootstrap'],
   },
   {
     dateRange: '2013 — 2014',
@@ -80,11 +100,10 @@ const experiences = [
     company: 'Ohio University',
     location: 'Athens, OH',
     bullets: [
-      'Developed front-end features using AngularJS and BackboneJS.',
-      'Developed, debugged, and tested Grails web applications.',
+      'Developed front-end features using HTML5, CSS3, JavaScript, AngularJS, BackboneJS, and jQuery.',
       'Created and maintained Oracle database queries.',
     ],
-    tags: ['AngularJS', 'BackboneJS', 'Grails', 'Oracle', 'JavaScript'],
+    tags: ['AngularJS', 'BackboneJS', 'Oracle', 'JavaScript', 'jQuery'],
   },
 ]
 
@@ -94,6 +113,43 @@ const education = {
   location: 'Athens, OH',
   year: '2014',
 }
+
+const skills = [
+  {
+    category: 'Frontend',
+    items: [
+      'React',
+      'Remix',
+      'TypeScript',
+      'JavaScript',
+      'Tailwind',
+      'ShadCN',
+      'HTML5',
+      'CSS3',
+    ],
+  },
+  {
+    category: 'Backend',
+    items: ['Ruby on Rails', 'SQL', 'REST APIs', 'PostgreSQL'],
+  },
+  {
+    category: 'Tools & Platforms',
+    items: ['Cursor AI IDE', 'Claude Code', 'ChatGPT', 'Git'],
+  },
+  {
+    category: 'Familiarity',
+    items: [
+      'Next.js',
+      'Prisma',
+      'ExpressJS',
+      'Angular',
+      'Docker',
+      'AWS',
+      'CircleCI',
+      'Vercel',
+    ],
+  },
+]
 
 export default function Experience() {
   return (
@@ -111,7 +167,7 @@ export default function Experience() {
             <div className="flex items-center gap-2 justify-between mb-3">
               <h1 className="text-3xl md:text-4xl font-bold">Experience</h1>
               <a
-                href="/Brady Stephenson - Design Pickle.pdf"
+                href="/Resume_Brady_Stephenson_2026.pdf"
                 target="_blank"
                 className="hover:cursor-pointer border-2 border-editor-accent-1 rounded-full p-2 hover:bg-editor-accent-1 transition-colors ease-linear"
               >
@@ -119,17 +175,17 @@ export default function Experience() {
               </a>
             </div>
             <p className="text-editor-accent-2 text-base md:text-lg max-w-2xl">
-              Senior / Lead Software Engineer with 12+ years of experience
-              building scalable, React-based web applications. Frontend-leaning
-              with full-stack depth and a strong focus on frontend architecture,
-              design systems, and performance.
+              Software Engineer Lead / Manager with 12+ years of experience.
+              Frontend-leaning full stack on React web applications. Seeking
+              senior or lead roles where I can own complex UI systems and mentor
+              engineers.
             </p>
           </div>
         </div>
 
         <ol className="flex flex-col gap-2">
           {experiences.map((exp) => (
-            <ExperienceCard key={exp.company} {...exp} />
+            <ExperienceCard key={`${exp.company}-${exp.dateRange}`} {...exp} />
           ))}
         </ol>
 
@@ -147,6 +203,24 @@ export default function Experience() {
                 {education.school} &middot; {education.location}
               </p>
             </div>
+          </div>
+        </section>
+
+        <section className="mt-16 border-t border-editor-accent-1/20 pt-10">
+          <h2 className="text-2xl font-bold mb-6">Skills</h2>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {skills.map((group) => (
+              <div key={group.category}>
+                <h3 className="text-sm font-mono text-editor-accent-1 mb-2">
+                  {group.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((skill) => (
+                    <Tag key={skill}>{skill}</Tag>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </div>
