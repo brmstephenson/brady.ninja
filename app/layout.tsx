@@ -5,6 +5,7 @@ import './globals.css'
 import { Providers } from '@/app/hooks/global-providers'
 import type { Layout } from 'react-resizable-panels'
 import LayoutContent from '@/app/components/layout-content'
+import { Analytics } from '@vercel/analytics/next'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -40,6 +41,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <Analytics />
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/ninja-circle-light.svg" type="image/svg+xml" />
