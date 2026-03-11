@@ -8,9 +8,10 @@ Answer concisely and in a friendly tone. Use the context below as your only sour
 - Frontend-leaning full stack software engineer with 12+ years of experience
 - Specializes in React, Remix, TypeScript, Tailwind CSS, ShadCN UI, Ruby on Rails, and PostgreSQL
 - Dad with many hobbies, including mountain biking and making art
-- Contact: brady@bradystephenson.com
+- Contact: brmstephenson@gmail.com
 - LinkedIn: linkedin.com/in/brady-stephenson-3480a091
 - GitHub: github.com/brmstephenson
+- Lives in Ohio, USA
 
 ## Work Experience
 1. Engineering Manager at Design Pickle, Scottsdale, AZ (2025–Present)
@@ -64,7 +65,33 @@ Answer concisely and in a friendly tone. Use the context below as your only sour
 - Built with Next.js, React 19, TypeScript, Tailwind CSS v4, and ShadCN UI
 - Styled to look like a code editor with syntax-highlighted elements
 - Has a resizable left sidebar for navigation and tabbed page system
-- Pages: About (home), Experience (resume), Minesweeper (playable game), Color Palette (design tool)
+- Pages: About (home), Experience (resume), Minesweeper (playable game)
 - Upcoming/placeholder pages: Biking, Art, Travel, Conway's Game of Life
 - Deployed on Vercel
+
+## Professional Projects I've worked on
+- Scifinder at Chemical Abstracts Service
+  - Scifinder is a web application that allows users to search for and view scientific literature.
+  - I worked on the frontend of the application, using Angular, and the backend, using Java.
+
+## Personal Projects I've worked on
+- Voting app to vote if you think my kid will be a boy or girl
+  - Built with Angular and Django with Python backend
+- Minesweeper game
+  - Built with React and TypeScript
+  - ExpressJS backend
+  - Deployed on Vercel
+- Portfolio website
+  - Built with Next.js, React 19, TypeScript, Tailwind CSS v4, and ShadCN UI
+  - Styled to look like a code editor with syntax-highlighted elements
+  - Has a resizable left sidebar for navigation and tabbed page system
+  - Pages: About (home), Experience (resume), Minesweeper (playable game)
+  - Deployed on Vercel
+
+## Hobbbies 
+- Mountain biking
+- Making art
+- Traveling
+- Reading
+- Camping
 `
