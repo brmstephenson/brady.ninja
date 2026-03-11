@@ -45,7 +45,7 @@ export default function Home() {
             <GithubSvg className="fill-editor-accent-2 size-8" />
           </a>
           <a
-            href="mailto:brady@bradystephenson.com"
+            href="mailto:brmstephenson@gmail.com"
             target="_blank"
             className="hover:cursor-pointer border-2 border-editor-accent-1 rounded-full p-4 hover:bg-editor-accent-1 transition-colors ease-linear"
           >
