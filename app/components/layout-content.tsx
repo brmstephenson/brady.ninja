@@ -150,11 +150,9 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
             chatOpen ? 'w-96' : 'w-0 border-l-0'
           )}
         >
-          {chatOpen && (
-            <div className="w-96 h-full">
-              <ChatSidebar />
-            </div>
-          )}
+          <div className="w-96 h-full">
+            <ChatSidebar />
+          </div>
         </div>
       </div>
       <Footer />

@@ -8,8 +8,16 @@ import {
   SquareIcon,
   AlertTriangleIcon,
   BotIcon,
+  RotateCwIcon,
+  InfoIcon,
 } from 'lucide-react'
 import { Button } from '@/app/components/ui/button'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/app/components/ui/tooltip'
 import { cn } from '@/app/lib/cn'
 import { useWebLLM, type ChatMessage } from '@/app/hooks/use-web-llm'
 
@@ -23,6 +31,7 @@ export default function ChatSidebar() {
     sendMessage,
     stopGenerating,
     clearChat,
+    resetEngine,
   } = useWebLLM()
   const [input, setInput] = useState('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -123,19 +132,43 @@ export default function ChatSidebar() {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex items-center justify-between px-3 py-2 border-b border-editor-accent-1/20">
-        <span className="text-xs font-medium text-editor-accent-2">
-          AI Chat
-        </span>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={clearChat}
-          className="h-6 w-6 p-0 text-editor-accent-2 hover:text-editor-foreground"
-          title="Clear chat"
-        >
-          <Trash2Icon className="size-3.5" />
-        </Button>
+      <div className="flex items-center justify-between px-3 py-2 border-b border-editor-accent-1">
+        <div className="flex items-center gap-1.5">
+          <span className="text-xs font-medium text-editor-accent-2">
+            AI Chat
+          </span>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <InfoIcon className="size-3 text-editor-accent-2" />
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="max-w-60">
+                This AI chatbot sometimes shows inaccurate info, my experience
+                on this site is the source of truth.
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+        <div className="flex items-center gap-1">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={clearChat}
+            className="h-6 w-6 p-0 text-editor-accent-2 hover:text-editor-foreground"
+            title="Clear chat"
+          >
+            <Trash2Icon className="size-3.5" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={resetEngine}
+            className="h-6 w-6 p-0 text-editor-accent-2 hover:text-editor-foreground"
+            title="Reload model"
+          >
+            <RotateCwIcon className="size-3.5" />
+          </Button>
+        </div>
       </div>
 
       <div className="flex-1 overflow-y-auto p-3 space-y-3">
