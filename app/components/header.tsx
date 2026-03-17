@@ -8,7 +8,7 @@ import { useChatSidebar } from '@/app/hooks/use-chat-sidebar'
 
 export default function Header({ className }: { className?: string }) {
   const { open, setOpen } = useSidebar()
-  const { toggle: toggleChat } = useChatSidebar()
+  const { toggle: toggleChat, open: chatOpen } = useChatSidebar()
 
   return (
     <header
@@ -22,14 +22,18 @@ export default function Header({ className }: { className?: string }) {
         <h1>Brady Stephenson</h1>
       </Link>
       <div className="flex items-center gap-1">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={toggleChat}
-          title="Toggle AI Chat"
-        >
-          <MessageSquareIcon className="size-4" />
-        </Button>
+        {isAiChatEnabled && (
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleChat}
+            title="Toggle AI Chat"
+          >
+            <MessageSquareIcon
+              className={cn('size-4', chatOpen ? 'fill-primary' : 'fill-none')}
+            />
+          </Button>
+        )}
         <ThemeChanger cookieName="brady-theme" />
       </div>
     </header>
