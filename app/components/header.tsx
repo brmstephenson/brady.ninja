@@ -22,18 +22,16 @@ export default function Header({ className }: { className?: string }) {
         <h1>Brady Stephenson</h1>
       </Link>
       <div className="flex items-center gap-1">
-        {isAiChatEnabled && (
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleChat}
-            title="Toggle AI Chat"
-          >
-            <MessageSquareIcon
-              className={cn('size-4', chatOpen ? 'fill-primary' : 'fill-none')}
-            />
-          </Button>
-        )}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleChat}
+          title="Toggle AI Chat"
+        >
+          <MessageSquareIcon
+            className={cn('size-4', chatOpen ? 'fill-primary' : 'fill-none')}
+          />
+        </Button>
         <ThemeChanger cookieName="brady-theme" />
       </div>
     </header>
