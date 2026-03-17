@@ -19,6 +19,15 @@ import PageList from './page-list'
 import OpenPages from './open-pages'
 import Footer from '@/app/components/footer'
 import { useOpenPages } from '@/app/hooks/use-open-pages'
+import { cn } from '@/app/lib/cn'
+import { useChatSidebar } from '@/app/hooks/use-chat-sidebar'
+import ChatSidebar from '@/app/components/chat-sidebar'
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetDescription,
+} from '@/app/components/ui/sheet'
 
 interface ResizableLayoutProps {
   children: React.ReactNode
@@ -42,11 +51,24 @@ export default function LayoutContent({
 
 function MobileLayout({ children }: ResizableLayoutProps) {
   const { openPages } = useOpenPages()
+  const { open: chatOpen, setOpen: setChatOpen } = useChatSidebar()
 
   return (
     <>
       <Header className="fixed w-full top-0 left-0" />
       <AppSidebar />
+      <Sheet open={chatOpen} onOpenChange={setChatOpen}>
+        <SheetContent
+          side="right"
+          className="p-0 bg-editor-background text-editor-foreground w-full sm:max-w-sm"
+        >
+          <SheetTitle className="sr-only">AI Chat</SheetTitle>
+          <SheetDescription className="sr-only">
+            Chat with an AI assistant about Brady Stephenson
+          </SheetDescription>
+          <ChatSidebar />
+        </SheetContent>
+      </Sheet>
       <div className="h-[calc(100%-90px)] mt-15">
         <OpenPages />
         <div>{openPages.length === 0 ? <EmptyState /> : children}</div>
@@ -59,6 +81,7 @@ function MobileLayout({ children }: ResizableLayoutProps) {
 function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
   const { open, setOpen } = useSidebar()
   const { openPages } = useOpenPages()
+  const { open: chatOpen } = useChatSidebar()
   const sidebarPanelRef = useRef<PanelImperativeHandle>(null)
   const prevOpenRef = useRef(open)
 
@@ -80,45 +103,57 @@ function DesktopLayout({ children, defaultLayout }: ResizableLayoutProps) {
   return (
     <div className="h-screen w-screen">
       <Header />
-      <div className="h-[calc(100%-90px)]">
-        <ResizablePanelGroup
-          id="main-layout"
-          defaultLayout={defaultLayout}
-          onLayoutChanged={(layout) => {
-            document.cookie = `brady-layout=${encodeURIComponent(
-              JSON.stringify(layout)
-            )}; path=/; max-age=31536000`
-          }}
-        >
-          <ResizablePanel
-            id="sidebar"
-            defaultSize={20}
-            className="overflow-y-auto"
-            panelRef={sidebarPanelRef}
-            collapsible
-            collapsedSize={0}
-            maxSize="90%"
-            minSize="20%"
-            onResize={(size: PanelSize) => {
-              if (size.asPercentage === 0 && open) {
-                setOpen(false)
-              } else if (size.asPercentage >= 5 && !open) {
-                setOpen(true)
-              }
+      <div className="h-[calc(100%-90px)] flex">
+        <div className="flex-1 min-w-0">
+          <ResizablePanelGroup
+            id="main-layout"
+            defaultLayout={defaultLayout}
+            onLayoutChanged={(layout) => {
+              document.cookie = `brady-layout=${encodeURIComponent(
+                JSON.stringify(layout)
+              )}; path=/; max-age=31536000`
             }}
           >
-            <PageList />
-          </ResizablePanel>
-          <ResizableHandle withHandle />
-          <ResizablePanel id="content" defaultSize={80}>
-            <div className="sticky top-0 left-0">
-              <OpenPages />
-            </div>
-            <div className="w-full h-[calc(100%-40px)] overflow-auto">
-              {openPages.length === 0 ? <EmptyState /> : children}
-            </div>
-          </ResizablePanel>
-        </ResizablePanelGroup>
+            <ResizablePanel
+              id="sidebar"
+              defaultSize={20}
+              className="overflow-y-auto"
+              panelRef={sidebarPanelRef}
+              collapsible
+              collapsedSize={0}
+              maxSize="90%"
+              minSize="20%"
+              onResize={(size: PanelSize) => {
+                if (size.asPercentage === 0 && open) {
+                  setOpen(false)
+                } else if (size.asPercentage >= 5 && !open) {
+                  setOpen(true)
+                }
+              }}
+            >
+              <PageList />
+            </ResizablePanel>
+            <ResizableHandle withHandle />
+            <ResizablePanel id="content" defaultSize={80}>
+              <div className="sticky top-0 left-0">
+                <OpenPages />
+              </div>
+              <div className="w-full h-[calc(100%-40px)] overflow-auto">
+                {openPages.length === 0 ? <EmptyState /> : children}
+              </div>
+            </ResizablePanel>
+          </ResizablePanelGroup>
+        </div>
+        <div
+          className={cn(
+            'h-full border-l border-editor-accent-1/20 bg-editor-background transition-all duration-300 ease-in-out overflow-hidden',
+            chatOpen ? 'w-96' : 'w-0 border-l-0'
+          )}
+        >
+          <div className="w-96 h-full">
+            <ChatSidebar />
+          </div>
+        </div>
       </div>
       <Footer />
     </div>

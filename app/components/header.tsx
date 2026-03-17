@@ -2,9 +2,13 @@ import { SidebarTrigger, useSidebar } from './ui/sidebar'
 import ThemeChanger from './theme-changer'
 import Link from 'next/link'
 import { cn } from '../lib/cn'
+import { MessageSquareIcon } from 'lucide-react'
+import { Button } from './ui/button'
+import { useChatSidebar } from '@/app/hooks/use-chat-sidebar'
 
 export default function Header({ className }: { className?: string }) {
   const { open, setOpen } = useSidebar()
+  const { toggle: toggleChat, open: chatOpen } = useChatSidebar()
 
   return (
     <header
@@ -17,7 +21,21 @@ export default function Header({ className }: { className?: string }) {
       <Link href="/">
         <h1>Brady Stephenson</h1>
       </Link>
-      <ThemeChanger cookieName="brady-theme" />
+      <div className="flex items-center gap-1">
+        {isAiChatEnabled && (
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleChat}
+            title="Toggle AI Chat"
+          >
+            <MessageSquareIcon
+              className={cn('size-4', chatOpen ? 'fill-primary' : 'fill-none')}
+            />
+          </Button>
+        )}
+        <ThemeChanger cookieName="brady-theme" />
+      </div>
     </header>
   )
 }
