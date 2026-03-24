@@ -5,15 +5,15 @@ import { DownloadIcon } from 'lucide-react'
 const experiences = [
   {
     dateRange: '2025 — Present',
-    title: 'Engineering Manager',
+    title: 'Engineering Lead & Manager',
     company: 'Design Pickle',
     location: 'Scottsdale, AZ',
     bullets: [
-      'Manage and mentor a team of 3 frontend engineers, leading sprint planning, architecture, and execution across 6 major platform initiatives.',
-      'Directed infrastructure migration from Heroku to AWS, reducing annual cloud spend by $30k+.',
+      'Directed infrastructure migration from Heroku to AWS, reducing annual cloud spend by over $30k.',
       'Led frontend modernization and rebrand by migrating legacy Rails/React views to Remix + Vite, improving build performance by 25% and local development speed by 90%.',
-      'Introduced standardized AI-assisted engineering workflows via Cursor, improving iteration speed while maintaining code quality and consistency.',
-      'Remained hands-on in production code while leading technical direction and system design.',
+      'Architected AI-assisted engineering workflows via Cursor and Opencode, increasing iteration speed while maintaining high code quality and consistency.',
+      'Maintained hands-on production code while driving technical direction, system design, and sprint execution across 6 major platform initiatives.',
+      'Managed and mentored a team of 3 frontend engineers, focusing on technical growth and high-standard delivery.',
     ],
     tags: [
       'React',
@@ -23,29 +23,30 @@ const experiences = [
       'Tailwind',
       'Ruby on Rails',
       'AWS',
-      'Cursor AI',
+      'Cursor',
+      'Opencode',
     ],
   },
   {
-    dateRange: '2024',
+    dateRange: 'Jan 2024 — Dec 2024',
     title: 'Lead Frontend Software Engineer',
     company: 'Design Pickle',
     location: 'Scottsdale, AZ',
     bullets: [
-      'Owned frontend hiring and onboarding, directly shaping team composition, technical standards, and long-term platform direction.',
-      'Served as frontend technical lead across major product initiatives spanning core workflows, platform refactors, and feature launches.',
-      'Partnered closely with product and design leadership to deliver roadmap features used by 2,200 monthly active customers.',
+      'Owned frontend technical standards and long-term platform direction as technical lead for core product workflows and feature launches.',
+      'Collaborated with product and design leadership to deliver roadmap features utilized by 2,200+ monthly active customers.',
+      'Scaled the engineering team by owning frontend hiring and onboarding processes.',
     ],
     tags: ['React', 'Remix', 'TypeScript', 'Tailwind', 'Ruby on Rails'],
   },
   {
-    dateRange: '2022 — 2023',
+    dateRange: 'Mar 2022 — Dec 2023',
     title: 'Senior Frontend Software Engineer',
     company: 'Design Pickle',
     location: 'Scottsdale, AZ',
     bullets: [
-      'First frontend engineer hired to architect and deliver a new React application.',
-      'Designed and implemented the initial frontend architecture, component system, and tooling.',
+      'Founding frontend engineer hired to architect and deliver a greenfield React application.',
+      'Designed the initial frontend architecture, including the core component system, state management, and developer tooling.',
     ],
     tags: ['React', 'TypeScript', 'Tailwind', 'Storybook'],
   },
@@ -79,6 +80,7 @@ const experiences = [
       'Led and supported a development team, including career growth and delivery expectations.',
       'Developed front-end applications using HTML5, CSS3, JavaScript, AngularJS, Angular 2+, jQuery, and Bootstrap at client sites.',
       'Presented technical and non-technical topics at team meetings and internal groups.',
+      'Co-organized meetings for an internal user interest group.',
       'Taught Angular at a weekend workshop for the Columbus Web Groups meetup.',
     ],
     tags: ['Angular', 'AngularJS', 'JavaScript', 'Bootstrap', 'jQuery'],
@@ -134,14 +136,14 @@ const skills = [
   },
   {
     category: 'Tools & Platforms',
-    items: ['Cursor AI IDE', 'Claude Code', 'ChatGPT', 'Git'],
+    items: ['Cursor AI IDE', 'Claude Code', 'Chat GPT', 'Opencode', 'Git'],
   },
   {
     category: 'Familiarity',
     items: [
       'Next.js',
       'Prisma',
-      'ExpressJS',
+      'ExpressJs',
       'Angular',
       'Docker',
       'AWS',
@@ -167,7 +169,7 @@ export default function Experience() {
             <div className="flex items-center gap-2 justify-between mb-3">
               <h1 className="text-3xl md:text-4xl font-bold">Experience</h1>
               <a
-                href="/Resume_Brady_Stephenson_2026.pdf"
+                href="/Brady_Stephenson_Engineering_Lead_Manager_2026.pdf"
                 target="_blank"
                 className="hover:cursor-pointer border-2 border-editor-accent-1 rounded-full p-2 hover:bg-editor-accent-1 transition-colors ease-linear"
               >
@@ -175,10 +177,12 @@ export default function Experience() {
               </a>
             </div>
             <p className="text-editor-accent-2 text-base md:text-lg max-w-2xl">
-              Software Engineer Lead / Manager with 12+ years of experience.
-              Frontend-leaning full stack on React web applications. Seeking
-              senior or lead roles where I can own complex UI systems and mentor
-              engineers.
+              12+ years in front-end–leaning full-stack engineering and
+              technical leadership. Deep React experience (7+ years) across
+              modern stacks including Remix and Vite. AI workflow pioneer with
+              Cursor and Opencode to accelerate delivery and code quality.
+              Product-minded leader with a track record of hiring, onboarding,
+              and platform direction for teams serving 2,200+ active customers.
             </p>
           </div>
         </div>
