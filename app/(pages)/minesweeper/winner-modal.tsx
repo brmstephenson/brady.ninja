@@ -1,7 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-
 interface WinnerModalProps {
   open: boolean
   setOpen: (open: boolean) => void
@@ -40,54 +38,54 @@ export default function WinnerModal({
   )
 }
 
-interface WinnerFormProps {
-  score: number
-  setOpen: (open: boolean) => void
-}
+// interface WinnerFormProps {
+//   score: number
+//   setOpen: (open: boolean) => void
+// }
 
-function WinnerForm({ score, setOpen }: WinnerFormProps) {
-  const [name, setName] = useState('')
+// function WinnerForm({ score, setOpen }: WinnerFormProps) {
+//   const [name, setName] = useState('')
 
-  async function saveScore() {
-    // TODO: Wire up API call to save high score
-    // try {
-    //   await saveHighScore(name, score)
-    //   setName('')
-    //   setOpen(false)
-    // } catch (e) {
-    //   console.error('Error saving high score', e)
-    // }
-    console.log('Score saved (stubbed):', { name, score })
-    setName('')
-    setOpen(false)
-  }
+//   async function saveScore() {
+//     // TODO: Wire up API call to save high score
+//     // try {
+//     //   await saveHighScore(name, score)
+//     //   setName('')
+//     //   setOpen(false)
+//     // } catch (e) {
+//     //   console.error('Error saving high score', e)
+//     // }
+//     console.log('Score saved (stubbed):', { name, score })
+//     setName('')
+//     setOpen(false)
+//   }
 
-  return (
-    <>
-      <p className="flex justify-center text-editor-accent-2">
-        Would you like to post your score?
-      </p>
-      <h4 className="flex justify-center items-center text-xl font-mono text-editor-accent-1">
-        {score}s
-      </h4>
-      <div>
-        <div className="flex gap-2 items-center justify-center">
-          <label className="text-editor-accent-2">Name:</label>
-          <input
-            className="bg-editor-background text-editor-foreground p-2 rounded border border-editor-accent-1 focus:outline-none focus:ring-1 focus:ring-editor-accent-1"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className="flex justify-end w-full pt-4">
-          <button
-            className="bg-editor-accent-1 hover:bg-editor-accent-1/80 transition-colors text-editor-accent-1-foreground rounded px-4 py-1 font-medium"
-            onClick={saveScore}
-          >
-            Save
-          </button>
-        </div>
-      </div>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <p className="flex justify-center text-editor-accent-2">
+//         Would you like to post your score?
+//       </p>
+//       <h4 className="flex justify-center items-center text-xl font-mono text-editor-accent-1">
+//         {score}s
+//       </h4>
+//       <div>
+//         <div className="flex gap-2 items-center justify-center">
+//           <label className="text-editor-accent-2">Name:</label>
+//           <input
+//             className="bg-editor-background text-editor-foreground p-2 rounded border border-editor-accent-1 focus:outline-none focus:ring-1 focus:ring-editor-accent-1"
+//             value={name}
+//             onChange={(e) => setName(e.target.value)}
+//           />
+//         </div>
+//         <div className="flex justify-end w-full pt-4">
+//           <button
+//             className="bg-editor-accent-1 hover:bg-editor-accent-1/80 transition-colors text-editor-accent-1-foreground rounded px-4 py-1 font-medium"
+//             onClick={saveScore}
+//           >
+//             Save
+//           </button>
+//         </div>
+//       </div>
+//     </>
+//   )
+// }

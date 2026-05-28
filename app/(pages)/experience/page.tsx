@@ -2,110 +2,104 @@ import { cn } from '@/app/lib/cn'
 import Image from 'next/image'
 import { DownloadIcon } from 'lucide-react'
 
-const experiences = [
+type ExperienceRole = {
+  title: string
+  bullets: string[]
+  tags?: string[]
+}
+
+type ExperienceEntry = {
+  dateRange: string
+  company: string
+  location: string
+  title?: string
+  bullets?: string[]
+  tags?: string[]
+  roles?: ExperienceRole[]
+}
+
+const experiences: ExperienceEntry[] = [
   {
-    dateRange: '2025 — Present',
-    title: 'Engineering Lead & Manager',
+    dateRange: 'Apr 2022 — Apr 2026',
     company: 'Design Pickle',
     location: 'Scottsdale, AZ',
-    bullets: [
-      'Directed infrastructure migration from Heroku to AWS, reducing annual cloud spend by over $30k.',
-      'Led frontend modernization and rebrand by migrating legacy Rails/React views to Remix + Vite, improving build performance by 25% and local development speed by 90%.',
-      'Architected AI-assisted engineering workflows via Cursor and Opencode, increasing iteration speed while maintaining high code quality and consistency.',
-      'Maintained hands-on production code while driving technical direction, system design, and sprint execution across 6 major platform initiatives.',
-      'Managed and mentored a team of 3 frontend engineers, focusing on technical growth and high-standard delivery.',
-    ],
-    tags: [
-      'React',
-      'Remix',
-      'Vite',
-      'TypeScript',
-      'Tailwind',
-      'Ruby on Rails',
-      'AWS',
-      'Cursor',
-      'Opencode',
+    roles: [
+      {
+        title: 'Engineering Lead & Manager',
+        bullets: [
+          'Drove frontend modernization and rebrand by migrating to Remix + Vite, improving build performance by 25% and local development speed by 90%.',
+          'Architected AI-assisted engineering workflows via Cursor, significantly increasing iteration speed while maintaining high code quality and consistency.',
+          'Directed migration from Heroku to AWS, reducing annual cloud spend by over $30k.',
+          'Maintained hands-on production code contributions while leading system design and delivery across 6 major platform initiatives.',
+          'Mentored a team of 3 frontend engineers, focusing on technical growth and high-standard delivery.',
+        ],
+        tags: [
+          'React',
+          'Remix',
+          'Vite',
+          'TypeScript',
+          'Tailwind',
+          'Ruby on Rails',
+          'AWS',
+          'Cursor',
+        ],
+      },
+      {
+        title: 'Lead Frontend Software Engineer',
+        bullets: [
+          'Owned frontend technical standards and long-term platform direction, serving as the technical lead for core product workflows and feature launches utilized by 2,200+ monthly active customers.',
+          'Scaled the engineering team by owning frontend hiring and onboarding processes.',
+        ],
+        tags: ['React', 'Remix', 'TypeScript', 'Tailwind', 'Ruby on Rails'],
+      },
+      {
+        title: 'Senior Frontend Software Engineer',
+        bullets: [
+          'Hired as founding frontend engineer to architect and deliver a greenfield React application.',
+        ],
+        tags: ['React', 'TypeScript', 'Tailwind'],
+      },
     ],
   },
   {
-    dateRange: 'Jan 2024 — Dec 2024',
-    title: 'Lead Frontend Software Engineer',
-    company: 'Design Pickle',
-    location: 'Scottsdale, AZ',
-    bullets: [
-      'Owned frontend technical standards and long-term platform direction as technical lead for core product workflows and feature launches.',
-      'Collaborated with product and design leadership to deliver roadmap features utilized by 2,200+ monthly active customers.',
-      'Scaled the engineering team by owning frontend hiring and onboarding processes.',
-    ],
-    tags: ['React', 'Remix', 'TypeScript', 'Tailwind', 'Ruby on Rails'],
-  },
-  {
-    dateRange: 'Mar 2022 — Dec 2023',
-    title: 'Senior Frontend Software Engineer',
-    company: 'Design Pickle',
-    location: 'Scottsdale, AZ',
-    bullets: [
-      'Founding frontend engineer hired to architect and deliver a greenfield React application.',
-      'Designed the initial frontend architecture, including the core component system, state management, and developer tooling.',
-    ],
-    tags: ['React', 'TypeScript', 'Tailwind', 'Storybook'],
-  },
-  {
-    dateRange: '2019 — 2022',
+    dateRange: 'Aug 2019 — Mar 2022',
     title: 'Software Engineer',
     company: 'Beam Dental',
     location: 'Columbus, OH',
     bullets: [
-      'Developed front-end views using ReactJS, Styled Components, HTML5, CSS3, and jQuery.',
+      'Developed front-end views using React, Styled Components, HTML5, CSS3, and jQuery.',
       'Developed backend applications using Rails APIs and views.',
-      'Built AWS Lambda functions for file parsing.',
-      'Led team efforts to deliver projects under aggressive timelines.',
       'Co-organized Front-End Working Group to share trends, best practices, and demos.',
-      'Organized a client performance working group to identify issues and define follow-up work.',
     ],
-    tags: [
-      'React',
-      'Styled Components',
-      'Ruby on Rails',
-      'AWS Lambda',
-      'jQuery',
-    ],
+    tags: ['React', 'Styled Components', 'Ruby on Rails', 'jQuery'],
   },
   {
-    dateRange: '2015 — 2019',
+    dateRange: 'Sept 2015 — Aug 2019',
     title: 'Senior Software Engineer / Team Lead',
     company: 'Insight Digital Innovations / Cardinal Solutions Group',
     location: 'Columbus, OH',
     bullets: [
       'Led and supported a development team, including career growth and delivery expectations.',
-      'Developed front-end applications using HTML5, CSS3, JavaScript, AngularJS, Angular 2+, jQuery, and Bootstrap at client sites.',
-      'Presented technical and non-technical topics at team meetings and internal groups.',
-      'Co-organized meetings for an internal user interest group.',
+      'Developed front-end applications using JavaScript, AngularJS, Angular 2+, HTML, and CSS.',
       'Taught Angular at a weekend workshop for the Columbus Web Groups meetup.',
     ],
-    tags: ['Angular', 'AngularJS', 'JavaScript', 'Bootstrap', 'jQuery'],
+    tags: ['Angular', 'AngularJS', 'JavaScript'],
   },
   {
-    dateRange: '2014 — 2015',
+    dateRange: 'Jul 2014 — Sept 2015',
     title: 'Software Engineer',
     company: 'Tata Consultancy Services',
     location: 'Milford, OH',
-    bullets: [
-      'Developed IBM MobileFirst hybrid mobile applications.',
-      'Built front-end features using HTML5, CSS3, JavaScript, AngularJS, jQuery, and Bootstrap.',
-    ],
-    tags: ['AngularJS', 'JavaScript', 'IBM MobileFirst', 'Bootstrap'],
+    bullets: [],
+    tags: [],
   },
   {
-    dateRange: '2013 — 2014',
+    dateRange: 'Mar 2013 — May 2014',
     title: 'Software Engineer',
     company: 'Ohio University',
     location: 'Athens, OH',
-    bullets: [
-      'Developed front-end features using HTML5, CSS3, JavaScript, AngularJS, BackboneJS, and jQuery.',
-      'Created and maintained Oracle database queries.',
-    ],
-    tags: ['AngularJS', 'BackboneJS', 'Oracle', 'JavaScript', 'jQuery'],
+    bullets: [],
+    tags: [],
   },
 ]
 
@@ -126,6 +120,7 @@ const skills = [
       'JavaScript',
       'Tailwind',
       'ShadCN',
+      'React Query',
       'HTML5',
       'CSS3',
     ],
@@ -136,14 +131,13 @@ const skills = [
   },
   {
     category: 'Tools & Platforms',
-    items: ['Cursor AI IDE', 'Claude Code', 'Chat GPT', 'Opencode', 'Git'],
+    items: ['Cursor AI IDE', 'Claude Code', 'ChatGPT', 'Opencode', 'Git'],
   },
   {
     category: 'Familiarity',
     items: [
       'Next.js',
       'Prisma',
-      'ExpressJs',
       'Angular',
       'Docker',
       'AWS',
@@ -177,12 +171,10 @@ export default function Experience() {
               </a>
             </div>
             <p className="text-editor-accent-2 text-base md:text-lg max-w-2xl">
-              12+ years in front-end–leaning full-stack engineering and
-              technical leadership. Deep React experience (7+ years) across
-              modern stacks including Remix and Vite. AI workflow pioneer with
-              Cursor and Opencode to accelerate delivery and code quality.
-              Product-minded leader with a track record of hiring, onboarding,
-              and platform direction for teams serving 2,200+ active customers.
+              Full stack engineer with 12+ years of experience building
+              frontend-leaning apps. Expert in React, TypeScript, Tailwind,
+              and Rails. Adept at modernizing architecture, integrating AI tools
+              to speed up development, and leading high-performing teams.
             </p>
           </div>
         </div>
@@ -239,45 +231,80 @@ function ExperienceCard({
   location,
   bullets,
   tags,
-}: {
-  dateRange: string
-  title: string
-  company: string
-  location: string
-  bullets: string[]
-  tags: string[]
-}) {
+  roles,
+}: ExperienceEntry) {
   return (
     <li className="group relative grid sm:grid-cols-[150px_1fr] gap-1 sm:gap-6 rounded-lg p-4 transition-colors hover:bg-editor-accent-1/5">
-      <span className="text-sm font-mono text-editor-accent-1 pt-1 shrink-0">
+      <span className="text-sm font-mono text-editor-accent-1 pt-1 shrink-0 min-w-64">
         {dateRange}
       </span>
       <div className="flex flex-col gap-2">
         <div>
-          <h3 className="font-semibold text-lg leading-snug text-editor-foreground group-hover:text-editor-accent-1 transition-colors">
-            {title}{' '}
-            <span className="text-editor-accent-2">&middot; {company}</span>
-          </h3>
+          {title && (
+            <h3 className="font-semibold text-lg leading-snug text-editor-foreground group-hover:text-editor-accent-1 transition-colors">
+              {title}{' '}
+              <span className="text-editor-accent-2">&middot; {company}</span>
+            </h3>
+          )}
+          {!title && (
+            <h3 className="font-semibold text-lg leading-snug text-editor-foreground group-hover:text-editor-accent-1 transition-colors">
+              {company}
+            </h3>
+          )}
           <p className="text-sm text-editor-accent-2/70">{location}</p>
         </div>
-        <ul className="flex flex-col gap-1 text-sm text-editor-foreground/80">
-          {bullets.map((bullet, i) => (
-            <li key={i} className="flex gap-2">
-              <span
-                className="text-editor-accent-1 select-none shrink-0"
-                aria-hidden
-              >
-                &rsaquo;
-              </span>
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="flex flex-wrap gap-2 mt-1">
-          {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </div>
+
+        {roles?.map((role) => (
+          <div key={role.title} className="flex flex-col gap-2 mt-2">
+            <h4 className="font-medium text-editor-foreground">{role.title}</h4>
+            {role.bullets.length > 0 && (
+              <ul className="flex flex-col gap-1 text-sm text-editor-foreground/80">
+                {role.bullets.map((bullet, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span
+                      className="text-editor-accent-1 select-none shrink-0"
+                      aria-hidden
+                    >
+                      &rsaquo;
+                    </span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {role.tags && role.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-1">
+                {role.tags.map((tag) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+
+        {bullets && bullets.length > 0 && (
+          <ul className="flex flex-col gap-1 text-sm text-editor-foreground/80">
+            {bullets.map((bullet, i) => (
+              <li key={i} className="flex gap-2">
+                <span
+                  className="text-editor-accent-1 select-none shrink-0"
+                  aria-hidden
+                >
+                  &rsaquo;
+                </span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-1">
+            {tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </div>
+        )}
       </div>
     </li>
   )

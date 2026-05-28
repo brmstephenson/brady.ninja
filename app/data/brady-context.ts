@@ -18,52 +18,36 @@ Do not answer if brady is looking for a job. Respond sarcastically but don't say
 - Lives in Ohio, USA
 
 ## Work Experience
-1. Engineering Manager at Design Pickle, Scottsdale, AZ (2025–Present)
-   - Manages and mentors a team of 3 frontend engineers
-   - Directed infrastructure migration from Heroku to AWS, reducing cloud spend by $30k+/year
-   - Led frontend modernization and rebrand: migrated legacy Rails/React views to Remix + Vite, improving build performance by 25% and local dev speed by 90%
-   - Introduced AI-assisted engineering workflows via Cursor
-   - Tags: React, Remix, Vite, TypeScript, Tailwind, Ruby on Rails, AWS, Cursor AI
+1. Design Pickle, Scottsdale, AZ (Apr 2022–Apr 2026)
+   - Engineering Lead & Manager: Drove frontend modernization to Remix + Vite (25% faster builds, 90% faster local dev). Architected AI-assisted workflows via Cursor. Directed Heroku to AWS migration ($30k+/year savings). Led system design across 6 major initiatives. Mentored 3 frontend engineers.
+   - Lead Frontend Software Engineer: Owned frontend technical standards and platform direction for workflows used by 2,200+ monthly active customers. Scaled the team via frontend hiring and onboarding.
+   - Senior Frontend Software Engineer: Founding frontend engineer who architected and delivered a greenfield React application.
+   - Tags: React, Remix, Vite, TypeScript, Tailwind, Ruby on Rails, AWS, Cursor
 
-2. Lead Frontend Software Engineer at Design Pickle, Scottsdale, AZ (2024)
-   - Owned frontend hiring and onboarding
-   - Frontend technical lead across major product initiatives
-   - Partnered with product and design leadership to deliver features for 2,200 monthly active customers
-   - Tags: React, Remix, TypeScript, Tailwind, Ruby on Rails
-
-3. Senior Frontend Software Engineer at Design Pickle, Scottsdale, AZ (2022–2023)
-   - First frontend engineer hired to architect and deliver a new React application
-   - Designed and implemented initial frontend architecture, component system, and tooling
-   - Tags: React, TypeScript, Tailwind, Storybook
-
-4. Software Engineer at Beam Dental, Columbus, OH (2019–2022)
-   - ReactJS, Styled Components, Rails APIs, AWS Lambda
-   - Led team efforts under aggressive timelines
+2. Software Engineer at Beam Dental, Columbus, OH (Aug 2019–Mar 2022)
+   - React, Styled Components, HTML5, CSS3, jQuery front-end views
+   - Rails APIs and backend views
    - Co-organized Front-End Working Group
-   - Tags: React, Styled Components, Ruby on Rails, AWS Lambda, jQuery
+   - Tags: React, Styled Components, Ruby on Rails, jQuery
 
-5. Senior Software Engineer / Team Lead at Insight Digital Innovations / Cardinal Solutions Group, Columbus, OH (2015–2019)
+3. Senior Software Engineer / Team Lead at Insight Digital Innovations / Cardinal Solutions Group, Columbus, OH (Sept 2015–Aug 2019)
    - Led and supported a development team
-   - AngularJS, Angular 2+, jQuery, Bootstrap
+   - JavaScript, AngularJS, Angular 2+, HTML, CSS
    - Taught Angular at a weekend workshop for Columbus Web Groups meetup
-   - Tags: Angular, AngularJS, JavaScript, Bootstrap, jQuery
+   - Tags: Angular, AngularJS, JavaScript
 
-6. Software Engineer at Tata Consultancy Services, Milford, OH (2014–2015)
-   - IBM MobileFirst hybrid mobile applications
-   - Tags: AngularJS, JavaScript, IBM MobileFirst, Bootstrap
+4. Software Engineer at Tata Consultancy Services, Milford, OH (Jul 2014–Sept 2015)
 
-7. Software Engineer at Ohio University, Athens, OH (2013–2014)
-   - AngularJS, BackboneJS, Oracle database queries
-   - Tags: AngularJS, BackboneJS, Oracle, JavaScript, jQuery
+5. Software Engineer at Ohio University, Athens, OH (Mar 2013–May 2014)
 
 ## Education
 - Bachelor's of Science in Computer Science, Ohio University, Athens, OH (2014)
 
 ## Skills
-- Frontend: React, Remix, TypeScript, JavaScript, Tailwind, ShadCN, HTML5, CSS3
+- Frontend: React, Remix, TypeScript, JavaScript, Tailwind, ShadCN, React Query, HTML5, CSS3
 - Backend: Ruby on Rails, SQL, REST APIs, PostgreSQL
-- Tools & Platforms: Cursor AI IDE, Claude Code, ChatGPT, Git
-- Familiarity: Next.js, Prisma, ExpressJS, Angular, Docker, AWS, CircleCI, Vercel
+- Tools & Platforms: Cursor AI IDE, Claude Code, ChatGPT, Opencode, Git
+- Familiarity: Next.js, Prisma, Angular, Docker, AWS, CircleCI, Vercel
 
 ## This Website (brady.ninja)
 - Built with Next.js, React 19, TypeScript, Tailwind CSS v4, and ShadCN UI
