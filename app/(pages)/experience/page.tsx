@@ -20,18 +20,19 @@ type ExperienceEntry = {
 
 const experiences: ExperienceEntry[] = [
   {
-    dateRange: 'Apr 2022 — Apr 2026',
+    dateRange: '2022 — 2026',
     company: 'Design Pickle',
     location: 'Scottsdale, AZ',
     roles: [
       {
         title: 'Engineering Lead & Manager',
         bullets: [
-          'Drove frontend modernization and rebrand by migrating to Remix + Vite, improving build performance by 25% and local development speed by 90%.',
-          'Architected AI-assisted engineering workflows via Cursor, significantly increasing iteration speed while maintaining high code quality and consistency.',
-          'Directed migration from Heroku to AWS, reducing annual cloud spend by over $30k.',
-          'Maintained hands-on production code contributions while leading system design and delivery across 6 major platform initiatives.',
-          'Mentored a team of 3 frontend engineers, focusing on technical growth and high-standard delivery.',
+          'Led frontend modernization by migrating to Remix + Vite, improving build performance by 25% and local development speed by 90%.',
+          'Directed migration from Heroku to AWS, improving platform reliability while reducing annual cloud spend by over $30k.',
+          'Partnered with Product and UX teams to deliver six major platform initiatives and customer-facing enhancements.',
+          'Collaborated on GenAI-powered product features, helping define technical implementation and customer experience requirements.',
+          'Introduced AI-assisted engineering workflows via Cursor, increasing development velocity while maintaining code quality.',
+          'Mentored a team of 3 engineers through code reviews, technical guidance, and day-to-day coaching while remaining hands-on in React and Rails applications.',
         ],
         tags: [
           'React',
@@ -47,8 +48,9 @@ const experiences: ExperienceEntry[] = [
       {
         title: 'Lead Frontend Software Engineer',
         bullets: [
-          'Owned frontend technical standards and long-term platform direction, serving as the technical lead for core product workflows and feature launches utilized by 2,200+ monthly active customers.',
-          'Scaled the engineering team by owning frontend hiring and onboarding processes.',
+          'Served as technical lead for core customer workflows and platform initiatives used by more than 2,200 monthly active customers.',
+          'Led planning and execution of complex technical initiatives, partnering with stakeholders to translate requirements into deliverable milestones.',
+          'Owned frontend hiring, onboarding, and mentoring efforts during a period of team growth.',
         ],
         tags: ['React', 'Remix', 'TypeScript', 'Tailwind', 'Ruby on Rails'],
       },
@@ -62,31 +64,32 @@ const experiences: ExperienceEntry[] = [
     ],
   },
   {
-    dateRange: 'Aug 2019 — Mar 2022',
+    dateRange: '2019 — 2022',
     title: 'Software Engineer',
     company: 'Beam Dental',
     location: 'Columbus, OH',
     bullets: [
-      'Developed front-end views using React, Styled Components, HTML5, CSS3, and jQuery.',
-      'Developed backend applications using Rails APIs and views.',
-      'Co-organized Front-End Working Group to share trends, best practices, and demos.',
+      'Developed full-stack applications using React, Styled Components, HTML5, CSS3, jQuery, and Ruby on Rails.',
+      'Designed and maintained Rails APIs, server-rendered applications, and backend business logic supporting core insurance workflows.',
+      'Worked with relational databases and application data models to support business-critical systems.',
+      'Co-organized Front-End Working Group to share trends, best practices, and technical demonstrations.',
     ],
     tags: ['React', 'Styled Components', 'Ruby on Rails', 'jQuery'],
   },
   {
-    dateRange: 'Sept 2015 — Aug 2019',
-    title: 'Senior Software Engineer / Team Lead',
-    company: 'Insight Digital Innovations / Cardinal Solutions Group',
+    dateRange: '2015 — 2019',
+    title: 'Senior Software Engineer/Team Lead',
+    company: 'Insight Digital Innovations/Cardinal Solutions Group',
     location: 'Columbus, OH',
     bullets: [
-      'Led and supported a development team, including career growth and delivery expectations.',
-      'Developed front-end applications using JavaScript, AngularJS, Angular 2+, HTML, and CSS.',
+      'Led and supported a development team, including mentoring engineers and guiding delivery expectations.',
+      'Developed full-stack and front-end applications using JavaScript, AngularJS, Angular 2+, HTML, and CSS.',
       'Taught Angular at a weekend workshop for the Columbus Web Groups meetup.',
     ],
     tags: ['Angular', 'AngularJS', 'JavaScript'],
   },
   {
-    dateRange: 'Jul 2014 — Sept 2015',
+    dateRange: '2014 — 2015',
     title: 'Software Engineer',
     company: 'Tata Consultancy Services',
     location: 'Milford, OH',
@@ -94,7 +97,7 @@ const experiences: ExperienceEntry[] = [
     tags: [],
   },
   {
-    dateRange: 'Mar 2013 — May 2014',
+    dateRange: '2013 — 2014',
     title: 'Software Engineer',
     company: 'Ohio University',
     location: 'Athens, OH',
@@ -127,23 +130,19 @@ const skills = [
   },
   {
     category: 'Backend',
-    items: ['Ruby on Rails', 'SQL', 'REST APIs', 'PostgreSQL'],
+    items: ['Ruby on Rails', 'REST APIs', 'SQL', 'PostgreSQL'],
   },
   {
     category: 'Tools & Platforms',
-    items: ['Cursor AI IDE', 'Claude Code', 'ChatGPT', 'Opencode', 'Git'],
+    items: ['Cursor', 'Claude Code', 'ChatGPT', 'Opencode', 'Figma MCP', 'Jira MCP'],
+  },
+  {
+    category: 'Cloud & DevOps',
+    items: ['AWS', 'CircleCI', 'Git', 'CI/CD', 'Docker', 'Vercel'],
   },
   {
     category: 'Familiarity',
-    items: [
-      'Next.js',
-      'Prisma',
-      'Angular',
-      'Docker',
-      'AWS',
-      'CircleCI',
-      'Vercel',
-    ],
+    items: ['Next.js', 'Prisma', 'Angular', 'GraphQL'],
   },
 ]
 
@@ -171,10 +170,12 @@ export default function Experience() {
               </a>
             </div>
             <p className="text-editor-accent-2 text-base md:text-lg max-w-2xl">
-              Full stack engineer with 12+ years of experience building
-              frontend-leaning apps. Expert in React, TypeScript, Tailwind,
-              and Rails. Adept at modernizing architecture, integrating AI tools
-              to speed up development, and leading high-performing teams.
+              Full Stack Engineer with 12+ years of experience building web
+              applications. Expert in React, TypeScript, and Ruby on Rails with
+              experience leading technical initiatives, mentoring engineers, and
+              delivering customer-facing products. Experienced leveraging
+              AI-assisted development tools to accelerate delivery while
+              maintaining code quality.
             </p>
           </div>
         </div>
