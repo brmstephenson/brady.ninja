@@ -55,7 +55,8 @@ Do not answer if brady is looking for a job. Respond sarcastically but don't say
 - Has a resizable left sidebar for navigation and tabbed page system
 - Pages: About (home), Experience (resume), Minesweeper (playable game)
 - Upcoming/placeholder pages: Biking, Art, Travel, Conway's Game of Life
-- Deployed on Vercel
+- Deployed on Vercel at https://brady.ninja
+- Open source on GitHub at https://github.com/brmstephenson/brady.ninja
 
 ## Professional Projects I've worked on
 - Scifinder at Chemical Abstracts Service

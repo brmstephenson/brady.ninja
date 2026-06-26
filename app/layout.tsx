@@ -18,8 +18,49 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Brady Stephenson',
-  description: "Brady Stephenson's personal website",
+  title: {
+    default: 'Brady Stephenson',
+    template: '%s | Brady Stephenson',
+  },
+  description:
+    'Frontend-leaning full stack software engineer with 12+ years of experience in React, TypeScript, Remix, and Ruby on Rails. Portfolio, resume, and interactive projects.',
+  metadataBase: new URL('https://brady.ninja'),
+  keywords: [
+    'Brady Stephenson',
+    'Software Engineer',
+    'Frontend Engineer',
+    'React',
+    'TypeScript',
+    'Remix',
+    'Ruby on Rails',
+    'Portfolio',
+  ],
+  authors: [{ name: 'Brady Stephenson', url: 'https://brady.ninja' }],
+  creator: 'Brady Stephenson',
+  openGraph: {
+    title: 'Brady Stephenson',
+    description:
+      'Frontend-leaning full stack software engineer. Portfolio, resume, and interactive projects.',
+    url: 'https://brady.ninja',
+    siteName: 'Brady Stephenson',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/brady.jpeg',
+        width: 300,
+        height: 300,
+        alt: 'Brady Stephenson',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Brady Stephenson',
+    description:
+      'Frontend-leaning full stack software engineer. Portfolio, resume, and interactive projects.',
+    images: ['/brady.jpeg'],
+  },
 }
 
 export default async function RootLayout({

@@ -16,7 +16,7 @@ export default function Home() {
           </h1>
           <p className="xl:text-2xl md:text-xl text-lg text-editor-accent-2">
             <SyntaxHighlightedTag tag="p">
-              Software Engineer Frontend Focused hobbyist, and dad
+              Frontend-Focused Full Stack Software Engineer · Dad · Hobbyist
             </SyntaxHighlightedTag>
           </p>
         </div>
