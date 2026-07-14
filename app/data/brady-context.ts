@@ -10,7 +10,7 @@ Do not answer if brady is looking for a job. Respond sarcastically but don't say
 
 ## About Brady Stephenson
 - Frontend-leaning full stack software engineer with 12+ years of experience
-- Specializes in React, Remix, TypeScript, Tailwind CSS, ShadCN UI, Ruby on Rails, and PostgreSQL
+- Specializes in React, TypeScript, Remix, Next.js, Tailwind CSS, ShadCN UI, Ruby on Rails, Node.js, and PostgreSQL
 - Dad with many hobbies, including mountain biking and making art
 - Contact: brmstephenson@gmail.com
 - LinkedIn: linkedin.com/in/brady-stephenson-3480a091
@@ -19,21 +19,21 @@ Do not answer if brady is looking for a job. Respond sarcastically but don't say
 
 ## Work Experience
 1. Design Pickle, Scottsdale, AZ (Apr 2022–Apr 2026)
-   - Engineering Lead & Manager: Drove frontend modernization to Remix + Vite (25% faster builds, 90% faster local dev). Architected AI-assisted workflows via Cursor. Directed Heroku to AWS migration ($30k+/year savings). Led system design across 6 major initiatives. Mentored 3 frontend engineers.
-   - Lead Frontend Software Engineer: Owned frontend technical standards and platform direction for workflows used by 2,200+ monthly active customers. Scaled the team via frontend hiring and onboarding.
-   - Senior Frontend Software Engineer: Founding frontend engineer who architected and delivered a greenfield React application.
+   - Lead Software Engineer: Led frontend modernization to Remix + Vite (25% faster builds, 90% faster local startup). Supported Heroku to AWS migration ($30K+/year savings). Served as technical lead for customer-facing initiatives used by 2,200+ monthly active customers. Collaborated on GenAI-powered features and introduced AI-assisted development workflows. Mentored engineers through code reviews and technical design discussions.
+   - Senior Frontend Software Engineer: First frontend engineer who built the company's modern React application from the ground up and established reusable component patterns.
    - Tags: React, Remix, Vite, TypeScript, Tailwind, Ruby on Rails, AWS, Cursor
 
-2. Software Engineer at Beam Dental, Columbus, OH (Aug 2019–Mar 2022)
-   - React, Styled Components, HTML5, CSS3, jQuery front-end views
-   - Rails APIs and backend views
-   - Co-organized Front-End Working Group
+2. Software Engineer at Beam Dental, Columbus, OH (Aug 2019–Apr 2022)
+   - Developed customer-facing web applications across the full stack using React, JavaScript, and Ruby on Rails
+   - Built REST APIs and backend services supporting core insurance workflows
+   - Designed and maintained relational database models for business-critical systems
+   - Co-organized the Front-End Working Group
    - Tags: React, Styled Components, Ruby on Rails, jQuery
 
-3. Senior Software Engineer / Team Lead at Insight Digital Innovations / Cardinal Solutions Group, Columbus, OH (Sept 2015–Aug 2019)
-   - Led and supported a development team
-   - JavaScript, AngularJS, Angular 2+, HTML, CSS
-   - Taught Angular at a weekend workshop for Columbus Web Groups meetup
+3. Senior Software Engineer at Insight Digital Innovations / Cardinal Solutions Group, Columbus, OH (Sept 2015–Aug 2019)
+   - Delivered full-stack web applications using Angular, JavaScript, HTML, and CSS
+   - Led technical delivery across multiple client engagements while mentoring junior engineers
+   - Presented Angular workshops for the Columbus Web Group community
    - Tags: Angular, AngularJS, JavaScript
 
 4. Software Engineer at Tata Consultancy Services, Milford, OH (Jul 2014–Sept 2015)
@@ -44,10 +44,10 @@ Do not answer if brady is looking for a job. Respond sarcastically but don't say
 - Bachelor's of Science in Computer Science, Ohio University, Athens, OH (2014)
 
 ## Skills
-- Frontend: React, Remix, TypeScript, JavaScript, Tailwind, ShadCN, React Query, HTML5, CSS3
-- Backend: Ruby on Rails, SQL, REST APIs, PostgreSQL
-- Tools & Platforms: Cursor AI IDE, Claude Code, ChatGPT, Opencode, Git
-- Familiarity: Next.js, Prisma, Angular, Docker, AWS, CircleCI, Vercel
+- Frontend: React, TypeScript, JavaScript, Remix, Next.js, Tailwind, Tanstack Query/Table, HTML5, CSS3, ShadCN UI
+- Backend & APIs: Node.js, Express, Ruby on Rails, REST APIs, SQL, PostgreSQL
+- Tools: Cursor, Claude Code, ChatGPT, Opencode, Git, Docker, Figma, Jira, Confluence, Datadog, PagerDuty
+- Cloud: AWS, Docker, CircleCI, CI/CD, Vercel
 
 ## This Website (brady.ninja)
 - Built with Next.js, React 19, TypeScript, Tailwind CSS v4, and ShadCN UI

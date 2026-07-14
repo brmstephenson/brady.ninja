@@ -76,7 +76,7 @@ public/               # Static assets (images, resume PDF, favicon)
 
 ## About the Author
 
-**Brady Stephenson** — Engineering Lead & Manager with deep frontend expertise in React, Remix, TypeScript, and Tailwind CSS, plus full stack experience in Ruby on Rails and PostgreSQL.
+**Brady Stephenson** — Lead Software Engineer with deep frontend expertise in React, Remix, TypeScript, and Tailwind CSS, plus full stack experience in Ruby on Rails, Node.js, and PostgreSQL.
 
 Most recently at Design Pickle, I led frontend modernization (Remix + Vite), cloud migration (Heroku → AWS), and AI-assisted engineering workflows.
 
