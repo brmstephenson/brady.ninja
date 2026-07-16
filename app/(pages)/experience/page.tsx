@@ -27,11 +27,11 @@ const experiences: ExperienceEntry[] = [
       {
         title: 'Lead Software Engineer',
         bullets: [
-          'Led modernization of the frontend platform by migrating to Remix + Vite, improving build performance by 25% and reducing local startup time by 90%.',
+          'Led modernization of a large-scale web application by migrating to Remix + Vite, improving build performance by 25% and reducing local startup time by 90%.',
           'Supported the migration from Heroku to AWS, improving platform reliability while reducing annual infrastructure costs by more than $30K.',
-          'Served as technical lead for customer-facing platform initiatives, partnering with Product and UX to deliver major features used by 2,200+ monthly active customers.',
+          'Served as technical lead for major platform initiatives, partnering with Product and UX to deliver features used by 2,200+ monthly active customers.',
           'Collaborated on the design and implementation of GenAI-powered features while introducing AI-assisted development workflows that improved engineering velocity.',
-          'Drove frontend architecture, code quality, and engineering best practices while mentoring engineers through code reviews and technical design discussions.',
+          'Drove application architecture, code quality, and engineering best practices while mentoring engineers through code reviews and technical design discussions.',
         ],
         tags: [
           'React',
@@ -47,8 +47,8 @@ const experiences: ExperienceEntry[] = [
       {
         title: 'Senior Frontend Software Engineer',
         bullets: [
-          "Joined as the first frontend engineer and built the company's modern React application from the ground up.",
-          'Established reusable component patterns and frontend architecture that became the foundation for future development.',
+          "Joined as the first frontend engineer, helping build the company's modern web application from the ground up.",
+          'Established reusable application architecture and component patterns that became the foundation for future development.',
         ],
         tags: ['React', 'TypeScript', 'Tailwind'],
       },
@@ -60,7 +60,7 @@ const experiences: ExperienceEntry[] = [
     company: 'Beam Dental',
     location: 'Columbus, OH',
     bullets: [
-      'Developed customer-facing web applications across the full stack using React, JavaScript, and Ruby on Rails.',
+      'Developed and maintained full-stack web applications, REST APIs, and backend services using React and Ruby on Rails.',
       'Built REST APIs and backend services supporting core insurance workflows.',
       'Designed and maintained relational database models for business-critical systems.',
       'Co-organized the Front-End Working Group, sharing frontend best practices and emerging technologies.',
@@ -73,7 +73,7 @@ const experiences: ExperienceEntry[] = [
     company: 'Insight Digital Innovations/Cardinal Solutions Group',
     location: 'Columbus, OH',
     bullets: [
-      'Delivered full-stack web applications using Angular, JavaScript, HTML, and CSS.',
+      'Designed and delivered full-stack web applications using Angular, JavaScript, HTML, and CSS.',
       'Led technical delivery across multiple client engagements while mentoring junior engineers.',
       'Presented Angular workshops for the Columbus Web Group community.',
     ],
@@ -106,43 +106,43 @@ const education = {
 
 const skills = [
   {
+    category: 'Languages',
+    items: ['TypeScript', 'JavaScript', 'SQL', 'Ruby'],
+  },
+  {
     category: 'Frontend',
     items: [
       'React',
-      'TypeScript',
-      'JavaScript',
       'Remix',
       'Next.js',
       'Tailwind',
-      'Tanstack Query/Table',
-      'ShadCN',
+      'TanStack Query/Table',
       'HTML5',
       'CSS3',
+      'ShadCN/UI',
     ],
   },
   {
-    category: 'Backend & APIs',
-    items: ['Node.js', 'Express', 'Ruby on Rails', 'REST APIs', 'SQL', 'PostgreSQL'],
+    category: 'Backend',
+    items: ['Node.js', 'Express', 'Ruby on Rails', 'REST APIs', 'PostgreSQL'],
   },
   {
-    category: 'Tools & Platforms',
+    category: 'Cloud & DevOps',
+    items: ['AWS', 'Docker', 'CircleCI', 'CI/CD', 'Vercel'],
+  },
+  {
+    category: 'Tools',
     items: [
       'Cursor',
       'Claude Code',
       'ChatGPT',
-      'Opencode',
       'Git',
-      'Docker',
       'Figma',
       'Jira',
       'Confluence',
       'Datadog',
       'PagerDuty',
     ],
-  },
-  {
-    category: 'Cloud',
-    items: ['AWS', 'Docker', 'CircleCI', 'CI/CD', 'Vercel'],
   },
 ]
 
@@ -172,11 +172,11 @@ export default function Experience() {
             <p className="text-editor-accent-2 text-base md:text-lg max-w-2xl">
               Full Stack Software Engineer with 12+ years of experience
               building scalable web applications. Specializes in React,
-              TypeScript, and modern frontend architecture with hands-on
-              experience across the full stack. Proven track record modernizing
-              platforms, leading technical initiatives, and delivering
-              customer-facing products using modern AI-assisted development
-              workflows.
+              TypeScript, and modern web technologies with hands-on experience
+              designing and delivering software across the full stack. Proven
+              track record modernizing platforms, leading technical
+              initiatives, and shipping customer-facing products using
+              AI-assisted development workflows.
             </p>
           </div>
         </div>
