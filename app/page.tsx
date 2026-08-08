@@ -10,14 +10,10 @@ export default function Home() {
       <div className="flex flex-col items-center mt-8 gap-12">
         <div className="flex flex-col gap-4 text-center px-4">
           <h1 className="xl:text-5xl md:text-4xl text-3xl font-bold">
-            <SyntaxHighlightedTag tag="h1">
-              Brady Stephenson
-            </SyntaxHighlightedTag>
+            Brady Stephenson
           </h1>
           <p className="xl:text-2xl md:text-xl text-lg text-editor-accent-2">
-            <SyntaxHighlightedTag tag="p">
-              Frontend-Focused Full Stack Software Engineer · Dad · Hobbyist
-            </SyntaxHighlightedTag>
+            Lead Full Stack Software Engineer · Dad · Hobbyist
           </p>
         </div>
         <div className="flex justify-center items-center gap-8">
@@ -52,30 +48,21 @@ export default function Home() {
             <MailIcon className="text-editor-accent-2 size-8" />
           </a>
         </div>
-        <div className="bg-editor-accent-1 py-40 px-10 w-full mx-auto text-center text-editor-background">
+        <div className="w-full mx-auto text-center">
+          <h3 className="xl:text-2xl md:text-xl text-lg font-bold text-editor-accent-2">
+            $whoami
+          </h3>
           <div className="flex gap-4 items-center justify-center">
-            <h2 className="xl:text-4xl md:text-3xl text-2xl font-bold p-4">
-              <SyntaxHighlightedTag
-                tag="h2"
-                tagClassName="text-editor-accent-2"
-                bracketClassName="text-editor-accent-2-foreground"
-              >
-                Hi, I&apos;m Brady, Thanks for stopping by!
-              </SyntaxHighlightedTag>
+            <h2 className="xl:text-4xl md:text-3xl text-2xl font-bold pb-4">
+              Hi, I&apos;m Brady, Thanks for stopping by!
             </h2>
           </div>
-          <p className="xl:text-2xl md:text-xl text-lg max-w-xl mx-auto">
-            <SyntaxHighlightedTag
-              tag="p"
-              tagClassName="text-editor-accent-2"
-              bracketClassName="text-editor-accent-2-foreground"
-            >
-              I&apos;m a frontend leaning full stack software engineer with 12+
-              years of experience, specializing in React, Remix, TypeScript,
-              Tailwind CSS, ShadCN UI, Ruby on Rails, and PostgreSQL. I&apos;m
-              also a dad that has too many hobbies, latest being mountain biking
-              and making art.
-            </SyntaxHighlightedTag>
+          <p className="xl:text-2xl md:text-xl text-lg max-w-xl mx-auto text-editor-accent-2/70">
+            I&apos;m a frontend leaning full stack software engineer with 12+
+            years of experience, specializing in React, Remix, TypeScript,
+            Tailwind CSS, ShadCN UI, Ruby on Rails, and PostgreSQL. I&apos;m
+            also a dad that has too many hobbies, latest being mountain biking
+            and making art.
           </p>
         </div>
         <div className="w-full mx-auto pt-4 pb-18">
@@ -84,7 +71,7 @@ export default function Home() {
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
                 Work
               </h3>
-              <ul className="text-editor-accent-2">
+              <ul className="text-editor-accent-2/70">
                 <li>React</li>
                 <li>Remix</li>
                 <li>Tailwind CSS</li>
@@ -97,7 +84,7 @@ export default function Home() {
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
                 Tools
               </h3>
-              <ul className="text-editor-accent-2">
+              <ul className="text-editor-accent-2/70">
                 <li>Cursor</li>
                 <li>Vite</li>
                 <li>Vitest</li>
@@ -110,7 +97,7 @@ export default function Home() {
               <h3 className="xl:text-3xl md:text-2xl text-xl font-bold">
                 Play
               </h3>
-              <ul className="text-editor-accent-2">
+              <ul className="text-editor-accent-2/70">
                 <li>Next.JS</li>
                 <li>Node.JS</li>
                 <li>Prisma</li>
@@ -123,37 +110,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
-}
-
-function SyntaxHighlightedTag({
-  children,
-  tag,
-  tagClassName,
-  bracketClassName,
-}: {
-  children: React.ReactNode
-  tag: string
-  tagClassName?: string
-  bracketClassName?: string
-}) {
-  return (
-    <span>
-      <span className={cn('text-editor-accent-1', bracketClassName)}>
-        {'<'}
-      </span>
-      <span className={cn('text-editor-accent-2', tagClassName)}>{tag}</span>
-      <span className={cn('text-editor-accent-1', bracketClassName)}>
-        {'> '}
-      </span>
-      {children}
-      <span className={cn('text-editor-accent-1', bracketClassName)}>
-        {' </'}
-      </span>
-      <span className={cn('text-editor-accent-2', tagClassName)}>{tag}</span>
-      <span className={cn('text-editor-accent-1', bracketClassName)}>
-        {'>'}
-      </span>
-    </span>
   )
 }
