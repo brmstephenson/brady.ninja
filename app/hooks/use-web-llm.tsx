@@ -8,6 +8,7 @@ const MODEL_ID = 'SmolLM2-1.7B-Instruct-q4f16_1-MLC'
 export type ChatMessage = {
   role: 'user' | 'assistant'
   content: string
+  failed?: boolean
 }
 
 type LoadingState =
@@ -23,6 +24,7 @@ type WebLLMContextProps = {
   supportsWebGPU: () => boolean
   initEngine: () => Promise<void>
   sendMessage: (userMessage: string) => Promise<void>
+  retryMessage: (failedMessageIndex: number) => Promise<void>
   stopGenerating: () => void
   clearChat: () => void
   resetEngine: () => Promise<void>
@@ -105,19 +107,28 @@ export function WebLLMProvider({ children }: { children: React.ReactNode }) {
     }, 500)
   }, [clearGeneratingTimeout])
 
-  const sendMessage = useCallback(
-    async (userMessage: string) => {
-      const engine = engineRef.current
-      if (!engine || isGenerating) return
+  const markResponseFailed = useCallback(
+    (conversationMessages: ChatMessage[], partialContent = '') => {
+      const content =
+        partialContent ||
+        'The response timed out. Try again, or reload the model if the issue persists.'
+      setMessages([
+        ...conversationMessages,
+        { role: 'assistant', content, failed: true },
+      ])
+    },
+    []
+  )
 
-      const userMsg: ChatMessage = { role: 'user', content: userMessage }
-      const updatedMessages = [...messages, userMsg]
-      setMessages(updatedMessages)
+  const generateAssistantResponse = useCallback(
+    async (conversationMessages: ChatMessage[]) => {
+      const engine = engineRef.current
+      if (!engine) return
+
       setIsGenerating(true)
       abortRef.current = false
       clearGeneratingTimeout()
 
-      // Safety timeout: if no response arrives within 60s, force-abort
       generatingTimeoutRef.current = setTimeout(() => {
         abortRef.current = true
         try {
@@ -128,17 +139,27 @@ export function WebLLMProvider({ children }: { children: React.ReactNode }) {
         setIsGenerating(false)
         setMessages((prev) => {
           const last = prev[prev.length - 1]
-          if (last?.role === 'assistant' && !last.content) {
+          if (last?.role !== 'assistant') {
             return [
-              ...prev.slice(0, -1),
+              ...prev,
               {
                 role: 'assistant' as const,
                 content:
                   'The response timed out. Try again, or reload the model if the issue persists.',
+                failed: true,
               },
             ]
           }
-          return prev
+          return [
+            ...prev.slice(0, -1),
+            {
+              ...last,
+              content:
+                last.content ||
+                'The response timed out. Try again, or reload the model if the issue persists.',
+              failed: true,
+            },
+          ]
         })
       }, 60_000)
 
@@ -146,7 +167,7 @@ export function WebLLMProvider({ children }: { children: React.ReactNode }) {
         const request = {
           messages: [
             { role: 'system' as const, content: BRADY_SYSTEM_PROMPT },
-            ...updatedMessages,
+            ...conversationMessages,
           ],
           stream: true as const,
           temperature: 0.7,
@@ -157,7 +178,7 @@ export function WebLLMProvider({ children }: { children: React.ReactNode }) {
         let assistantContent = ''
 
         setMessages([
-          ...updatedMessages,
+          ...conversationMessages,
           { role: 'assistant', content: '' },
         ])
 
@@ -169,23 +190,53 @@ export function WebLLMProvider({ children }: { children: React.ReactNode }) {
           const delta = chunk.choices[0]?.delta?.content || ''
           assistantContent += delta
           setMessages([
-            ...updatedMessages,
+            ...conversationMessages,
             { role: 'assistant', content: assistantContent },
           ])
         }
       } catch (err) {
         const errorContent =
           err instanceof Error ? err.message : 'Something went wrong.'
-        setMessages([
-          ...updatedMessages,
-          { role: 'assistant', content: `Error: ${errorContent}` },
-        ])
+        markResponseFailed(
+          conversationMessages,
+          `Error: ${errorContent}`
+        )
       } finally {
         clearGeneratingTimeout()
         setIsGenerating(false)
       }
     },
-    [messages, isGenerating, clearGeneratingTimeout]
+    [clearGeneratingTimeout, markResponseFailed]
+  )
+
+  const sendMessage = useCallback(
+    async (userMessage: string) => {
+      const engine = engineRef.current
+      if (!engine || isGenerating) return
+
+      const userMsg: ChatMessage = { role: 'user', content: userMessage }
+      const updatedMessages = [...messages, userMsg]
+      setMessages(updatedMessages)
+      await generateAssistantResponse(updatedMessages)
+    },
+    [messages, isGenerating, generateAssistantResponse]
+  )
+
+  const retryMessage = useCallback(
+    async (failedMessageIndex: number) => {
+      if (isGenerating) return
+
+      const failed = messages[failedMessageIndex]
+      if (failed?.role !== 'assistant' || !failed.failed) return
+
+      const conversationMessages = messages.slice(0, failedMessageIndex)
+      const lastUser = conversationMessages[conversationMessages.length - 1]
+      if (lastUser?.role !== 'user') return
+
+      setMessages(conversationMessages)
+      await generateAssistantResponse(conversationMessages)
+    },
+    [messages, isGenerating, generateAssistantResponse]
   )
 
   const clearChat = useCallback(async () => {
@@ -227,6 +278,7 @@ export function WebLLMProvider({ children }: { children: React.ReactNode }) {
         supportsWebGPU,
         initEngine,
         sendMessage,
+        retryMessage,
         stopGenerating,
         clearChat,
         resetEngine,

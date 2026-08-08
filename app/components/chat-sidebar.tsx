@@ -29,6 +29,7 @@ export default function ChatSidebar() {
     supportsWebGPU,
     initEngine,
     sendMessage,
+    retryMessage,
     stopGenerating,
     clearChat,
     resetEngine,
@@ -180,7 +181,15 @@ export default function ChatSidebar() {
           </div>
         )}
         {messages.map((msg, i) => (
-          <MessageBubble key={i} message={msg} />
+          <MessageBubble
+            key={i}
+            message={msg}
+            onRetry={
+              msg.failed && !isGenerating
+                ? () => retryMessage(i)
+                : undefined
+            }
+          />
         ))}
         <div ref={messagesEndRef} />
       </div>
@@ -229,23 +238,45 @@ export default function ChatSidebar() {
   )
 }
 
-function MessageBubble({ message }: { message: ChatMessage }) {
+function MessageBubble({
+  message,
+  onRetry,
+}: {
+  message: ChatMessage
+  onRetry?: () => void
+}) {
   const isUser = message.role === 'user'
 
   return (
-    <div className={cn('flex', isUser ? 'justify-end' : 'justify-start')}>
-      <div
-        className={cn(
-          'max-w-[85%] rounded-lg px-3 py-2 text-sm whitespace-pre-wrap',
-          isUser
-            ? 'bg-editor-accent-1 text-editor-background'
-            : 'bg-editor-accent-1/10 text-editor-foreground'
-        )}
-      >
-        {message.content || (
-          <Loader2Icon className="size-4 animate-spin text-editor-accent-2" />
-        )}
+    <div className={cn('flex flex-col gap-1.5', isUser ? 'items-end' : 'items-start')}>
+      <div className={cn('flex', isUser ? 'justify-end' : 'justify-start')}>
+        <div
+          className={cn(
+            'max-w-[85%] rounded-lg px-3 py-2 text-sm whitespace-pre-wrap',
+            isUser
+              ? 'bg-editor-accent-1 text-editor-background'
+              : message.failed
+                ? 'bg-red-500/10 text-editor-foreground border border-red-500/30'
+                : 'bg-editor-accent-1/10 text-editor-foreground'
+          )}
+        >
+          {message.content || (
+            <Loader2Icon className="size-4 animate-spin text-editor-accent-2" />
+          )}
+        </div>
       </div>
+      {onRetry && (
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          onClick={onRetry}
+          className="h-7 gap-1.5 border-editor-accent-1/50 text-editor-accent-1 hover:bg-editor-accent-1/10"
+        >
+          <RotateCwIcon className="size-3" />
+          Retry
+        </Button>
+      )}
     </div>
   )
 }
