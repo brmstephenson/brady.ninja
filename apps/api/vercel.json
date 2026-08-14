@@ -13,7 +13,7 @@
     },
     {
       "source": "/health",
-      "destination": "/api/index"
+      "destination": "/api/src/api/index"
     }
   ]
 }
