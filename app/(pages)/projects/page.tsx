@@ -17,8 +17,14 @@ export default function Projects() {
         <div className="w-1/2 flex flex-col gap-8 text-left">
           <ProjectCard
             title="Portfolio"
-            content="This personal website highlighting my experience with some fun games."
-            techStackItems={['React', 'TailwindCSS', 'Ruby on Rails']}
+            content="This personal website showcasing myself, experience, projects I've worked, and minesweeper (more games to come)."
+            techStackItems={[
+              'React',
+              'TailwindCSS',
+              'ShadCN',
+              'Next.js',
+              'Vercel',
+            ]}
             githubLink="https://github.com/brmstephenson/brady.ninja"
           />
           <ProjectCard

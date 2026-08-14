@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import LinkedInSvg from './components/ui/linkedIn-svg'
 import GithubSvg from './components/ui/github-svg'
-import { cn } from './lib/cn'
 import { MailIcon } from 'lucide-react'
 
 export default function Home() {
