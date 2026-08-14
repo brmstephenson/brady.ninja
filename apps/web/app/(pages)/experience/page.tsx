@@ -18,7 +18,33 @@ type ExperienceEntry = {
   roles?: ExperienceRole[]
 }
 
-const experiences: ExperienceEntry[] = [
+type EducationEntry = {
+  degree: string
+  school: string
+  location: string
+  year: string
+}
+
+type SkillGroup = {
+  category: string
+  items: string[]
+}
+
+type ResumeContent = {
+  headline: string
+  summary: string
+  resumePdfPath?: string | null
+  experiences: ExperienceEntry[]
+  educationItems: EducationEntry[]
+  skillGroups: SkillGroup[]
+}
+
+const fallbackResumeContent: ResumeContent = {
+  headline: 'Experience',
+  summary:
+    'Full Stack Software Engineer with 12+ years of experience building scalable web applications. Specializes in React, TypeScript, and modern web technologies with hands-on experience designing and delivering software across the full stack. Proven track record modernizing platforms, leading technical initiatives, and shipping customer-facing products using AI-assisted development workflows.',
+  resumePdfPath: '/Brady_Stephenson_Engineering_Lead_2026.pdf',
+  experiences: [
   {
     dateRange: 'Apr 2022 — Apr 2026',
     company: 'Design Pickle',
@@ -95,16 +121,16 @@ const experiences: ExperienceEntry[] = [
     bullets: [],
     tags: [],
   },
-]
-
-const education = {
-  degree: "Bachelor's of Science in Computer Science",
-  school: 'Ohio University',
-  location: 'Athens, OH',
-  year: '2014',
-}
-
-const skills = [
+],
+  educationItems: [
+    {
+      degree: "Bachelor's of Science in Computer Science",
+      school: 'Ohio University',
+      location: 'Athens, OH',
+      year: '2014',
+    },
+  ],
+  skillGroups: [
   {
     category: 'Languages',
     items: ['TypeScript', 'JavaScript', 'SQL', 'Ruby'],
@@ -144,9 +170,42 @@ const skills = [
       'PagerDuty',
     ],
   },
-]
+],
+}
 
-export default function Experience() {
+export const revalidate = 300
+
+async function getResumeContent(): Promise<ResumeContent> {
+  const apiUrl = process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL
+
+  if (!apiUrl) {
+    return fallbackResumeContent
+  }
+
+  try {
+    const response = await fetch(`${apiUrl}/resume/current`, {
+      next: { revalidate },
+    })
+
+    if (!response.ok) {
+      return fallbackResumeContent
+    }
+
+    const resume = (await response.json()) as ResumeContent
+
+    return {
+      ...resume,
+      resumePdfPath: resume.resumePdfPath ?? fallbackResumeContent.resumePdfPath,
+    }
+  } catch {
+    return fallbackResumeContent
+  }
+}
+
+export default async function Experience() {
+  const resume = await getResumeContent()
+  const education = resume.educationItems[0]
+
   return (
     <div className="h-full bg-editor-background text-editor-foreground overflow-auto mx-auto">
       <div className="max-w-4xl mx-auto px-6 py-12 md:px-12">
@@ -162,7 +221,10 @@ export default function Experience() {
             <div className="flex items-center gap-2 justify-between mb-3">
               <h1 className="text-3xl md:text-4xl font-bold">Experience</h1>
               <a
-                href="/Brady_Stephenson_Engineering_Lead_2026.pdf"
+                href={
+                  resume.resumePdfPath ??
+                  '/Brady_Stephenson_Engineering_Lead_2026.pdf'
+                }
                 target="_blank"
                 className="hover:cursor-pointer border-2 border-editor-accent-1 rounded-full p-2 hover:bg-editor-accent-1 transition-colors ease-linear"
               >
@@ -170,44 +232,40 @@ export default function Experience() {
               </a>
             </div>
             <p className="text-editor-accent-2 text-base md:text-lg max-w-2xl">
-              Full Stack Software Engineer with 12+ years of experience
-              building scalable web applications. Specializes in React,
-              TypeScript, and modern web technologies with hands-on experience
-              designing and delivering software across the full stack. Proven
-              track record modernizing platforms, leading technical
-              initiatives, and shipping customer-facing products using
-              AI-assisted development workflows.
+              {resume.summary}
             </p>
           </div>
         </div>
 
         <ol className="flex flex-col gap-2">
-          {experiences.map((exp) => (
+          {resume.experiences.map((exp) => (
             <ExperienceCard key={`${exp.company}-${exp.dateRange}`} {...exp} />
           ))}
         </ol>
 
-        <section className="mt-16 border-t border-editor-accent-1/20 pt-10">
-          <h2 className="text-2xl font-bold mb-4">Education</h2>
-          <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-            <span className="text-sm font-mono text-editor-accent-1 shrink-0">
-              {education.year}
-            </span>
-            <div>
-              <p className="font-semibold text-editor-foreground">
-                {education.degree}
-              </p>
-              <p className="text-sm text-editor-accent-2">
-                {education.school} &middot; {education.location}
-              </p>
+        {education && (
+          <section className="mt-16 border-t border-editor-accent-1/20 pt-10">
+            <h2 className="text-2xl font-bold mb-4">Education</h2>
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+              <span className="text-sm font-mono text-editor-accent-1 shrink-0">
+                {education.year}
+              </span>
+              <div>
+                <p className="font-semibold text-editor-foreground">
+                  {education.degree}
+                </p>
+                <p className="text-sm text-editor-accent-2">
+                  {education.school} &middot; {education.location}
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         <section className="mt-16 border-t border-editor-accent-1/20 pt-10">
           <h2 className="text-2xl font-bold mb-6">Skills</h2>
           <div className="grid sm:grid-cols-2 gap-6">
-            {skills.map((group) => (
+            {resume.skillGroups.map((group) => (
               <div key={group.category}>
                 <h3 className="text-sm font-mono text-editor-accent-1 mb-2">
                   {group.category}
