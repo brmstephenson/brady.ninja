@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from '@/app/components/ui/card'
 import GithubSvg from '@/app/components/ui/github-svg'
-import { Code } from 'lucide-react'
+import { ReactNode } from 'react'
 
 export default function Projects() {
   return (
@@ -22,14 +22,75 @@ export default function Projects() {
             githubLink="https://github.com/brmstephenson/brady.ninja"
           />
           <ProjectCard
-            title="Media Organizer"
-            content="A personal project to filter, move, and organize old hard drive data to a new hard drive"
-            techStackItems={['Python']}
+            title="Design Pickle Projects Feature"
+            content={
+              <div className="flex flex-col gap-4">
+                <p>
+                  <h5 className="font-bold text-lg pb-2">Problem: </h5>
+                  Customers managed related design requests across separate
+                  workflows, making larger campaigns harder to organize, track,
+                  and keep consistent.
+                </p>
+                <p>
+                  <h5 className="font-bold text-lg pb-2">Solution: </h5>
+                  <div className="flex flex-col gap-2">
+                    <p>
+                      I helped build Projects, a workflow for grouping requests,
+                      tasks, assets, brand profiles, and tags under a single
+                      initiative.
+                    </p>
+                    <p>
+                      Customers could organize campaign work in one place,
+                      create or attach multiple requests, track progress, and
+                      keep related creative work aligned. They could make self
+                      managed tasks, separate from requests that help them keep
+                      organized.
+                    </p>
+                  </div>
+                </p>
+              </div>
+            }
+            techStackItems={[
+              'React',
+              'TailwindCSS',
+              'Remix',
+              'ShadCN',
+              'Ruby on Rails',
+            ]}
           />
           <ProjectCard
-            title="Design Pickle Projects Feature"
-            content="Allows users to group their design requests into marking campaigns(projects). Users can add multiple requests to a single project"
-            techStackItems={['React', 'TailwindCSS', 'Ruby on Rails']}
+            title="Design Pickle White Label Feature"
+            content={
+              <div className="flex flex-col gap-2">
+                <p>
+                  <h5 className="font-bold text-lg pb-2">Problem: </h5>
+                  Customers need a way for their own clients to submit and view
+                  their own designs. Currently customers have to create a
+                  request for their own clients, create a share & review link,
+                  send the link over to their customer. Finally their client can
+                  add requirements, comments, assets, etc to the request.
+                  Customers wanted a way to eliminate the manual work on their
+                  end.
+                </p>
+                <p>
+                  <h5 className="font-bold text-lg pb-2">Solution: </h5>
+                  <p>
+                    I helped build a way for customers to add a custom domain,
+                    primary color, secondary color, logo, and favicon. Now our
+                    customers could share a single link to their clients which
+                    hid the Design Pickle branding, allowing their clients to
+                    create whatever requests they wanted.
+                  </p>
+                </p>
+              </div>
+            }
+            techStackItems={[
+              'React',
+              'TailwindCSS',
+              'Remix',
+              'Ruby on Rails',
+              'AWS',
+            ]}
           />
         </div>
       </div>
@@ -39,7 +100,7 @@ export default function Projects() {
 
 interface ProjectCardProps {
   title: string
-  content: string
+  content: ReactNode | string
   techStackItems: string[]
   githubLink?: string
 }
@@ -60,10 +121,8 @@ function ProjectCard({
               target="_blank"
               className="flex gap-2 items-center"
             >
+              <GithubSvg className="fill-card-foreground size-4" />
               <h4>{title}</h4>
-              <div className="hover:cursor-pointer border-2 border-editor-accent-1 rounded-full p-1 hover:bg-editor-accent-1 transition-colors ease-linear">
-                <GithubSvg className="fill-editor-accent-2 size-4" />
-              </div>
             </a>
           ) : (
             <h4 className="p-1">{title}</h4>

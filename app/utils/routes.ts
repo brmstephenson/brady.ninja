@@ -3,7 +3,7 @@ import { OpenPage } from '../hooks/use-open-pages'
 export const pages: { title: string; href?: string; items?: OpenPage[] }[] = [
   { href: '/', title: 'About' },
   { href: '/experience', title: 'Experience' },
-  // { href: '/projects', title: 'Projects' },
+  { href: '/projects', title: 'Projects' },
   {
     title: 'Games',
     items: [

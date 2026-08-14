@@ -58,11 +58,11 @@ export default function Home() {
             </h2>
           </div>
           <p className="xl:text-2xl md:text-xl text-lg max-w-xl mx-auto text-editor-accent-2/70">
-            I&apos;m a frontend leaning full stack software engineer with 12+
-            years of experience, specializing in React, Remix, TypeScript,
-            Tailwind CSS, ShadCN UI, Ruby on Rails, and PostgreSQL. I&apos;m
-            also a dad that has too many hobbies, latest being mountain biking
-            and making art.
+            I&apos;m a full stack software engineer with over 12 years of
+            experience, specializing in React, Remix, TypeScript, Tailwind CSS,
+            ShadCN UI, Ruby on Rails, and PostgreSQL. I&apos;m also a dad that
+            has many hobbies, latest being mountain biking, playing guitar,
+            photography, and making art.
           </p>
         </div>
         <div className="w-full mx-auto pt-4 pb-18">
@@ -98,10 +98,10 @@ export default function Home() {
                 Play
               </h3>
               <ul className="text-editor-accent-2/70">
-                <li>Next.JS</li>
                 <li>Node.JS</li>
-                <li>Prisma</li>
                 <li>ExpressJS</li>
+                <li>Prisma</li>
+                <li>Next.JS</li>
                 <li>Figma</li>
                 <li>Vercel</li>
               </ul>
