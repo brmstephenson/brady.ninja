@@ -27,11 +27,11 @@ app.use(
   })
 )
 
-app.get('/health', (_req, res) => {
+app.get(['/health', '/api/health'], (_req, res) => {
   res.json({ ok: true })
 })
 
-app.get('/resume/current', async (_req, res, next) => {
+app.get(['/resume/current', '/api/resume/current'], async (_req, res, next) => {
   try {
     const resume = await getCurrentResume()
 
@@ -47,7 +47,7 @@ app.get('/resume/current', async (_req, res, next) => {
 })
 
 app.use(
-  '/trpc',
+  ['/trpc', '/api/trpc'],
   createExpressMiddleware({
     router: appRouter,
     createContext,

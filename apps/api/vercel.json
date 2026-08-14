@@ -2,18 +2,22 @@
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install",
   "functions": {
-    "api/index.ts": {
+    "api/[...path].ts": {
       "maxDuration": 10
     }
   },
   "rewrites": [
     {
       "source": "/trpc/:path*",
-      "destination": "/api/src/api/index"
+      "destination": "/api/trpc/:path*"
     },
     {
       "source": "/health",
-      "destination": "/api/src/api/index"
+      "destination": "/api/health"
+    },
+    {
+      "source": "/resume/:path*",
+      "destination": "/api/resume/:path*"
     }
   ]
 }
