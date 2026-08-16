@@ -1,7 +1,7 @@
 {
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install",
-  "framework": "expressjs",
+  "framework": "express",
   "functions": {
     "src/index.ts": {
       "maxDuration": 10
