@@ -1,0 +1,19 @@
+{
+  "framework": "express",
+  "buildCommand": "pnpm build",
+  "functions": {
+    "src/index.ts": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/trpc/:path*",
+      "destination": "/api/trpc/:path*"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    }
+  ]
+}

@@ -18,6 +18,23 @@ type ExperienceEntry = {
   roles?: ExperienceRole[]
 }
 
+type EducationEntry = {
+  degree: string
+  school: string
+  location: string
+  year: string
+}
+
+type SkillGroup = {
+  category: string
+  items: string[]
+}
+
+const resumePdfPath = '/Brady_Stephenson_Engineering_Lead_2026.pdf'
+
+const summary =
+  'Full Stack Software Engineer with 12+ years of experience building scalable web applications. Specializes in React, TypeScript, and modern web technologies with hands-on experience designing and delivering software across the full stack. Proven track record modernizing platforms, leading technical initiatives, and shipping customer-facing products using AI-assisted development workflows.'
+
 const experiences: ExperienceEntry[] = [
   {
     dateRange: 'Apr 2022 — Apr 2026',
@@ -97,14 +114,14 @@ const experiences: ExperienceEntry[] = [
   },
 ]
 
-const education = {
+const education: EducationEntry = {
   degree: "Bachelor's of Science in Computer Science",
   school: 'Ohio University',
   location: 'Athens, OH',
   year: '2014',
 }
 
-const skills = [
+const skillGroups: SkillGroup[] = [
   {
     category: 'Languages',
     items: ['TypeScript', 'JavaScript', 'SQL', 'Ruby'],
@@ -162,7 +179,7 @@ export default function Experience() {
             <div className="flex items-center gap-2 justify-between mb-3">
               <h1 className="text-3xl md:text-4xl font-bold">Experience</h1>
               <a
-                href="/Brady_Stephenson_Engineering_Lead_2026.pdf"
+                href={resumePdfPath}
                 target="_blank"
                 className="hover:cursor-pointer border-2 border-editor-accent-1 rounded-full p-2 hover:bg-editor-accent-1 transition-colors ease-linear"
               >
@@ -170,13 +187,7 @@ export default function Experience() {
               </a>
             </div>
             <p className="text-editor-accent-2 text-base md:text-lg max-w-2xl">
-              Full Stack Software Engineer with 12+ years of experience
-              building scalable web applications. Specializes in React,
-              TypeScript, and modern web technologies with hands-on experience
-              designing and delivering software across the full stack. Proven
-              track record modernizing platforms, leading technical
-              initiatives, and shipping customer-facing products using
-              AI-assisted development workflows.
+              {summary}
             </p>
           </div>
         </div>
@@ -207,7 +218,7 @@ export default function Experience() {
         <section className="mt-16 border-t border-editor-accent-1/20 pt-10">
           <h2 className="text-2xl font-bold mb-6">Skills</h2>
           <div className="grid sm:grid-cols-2 gap-6">
-            {skills.map((group) => (
+            {skillGroups.map((group) => (
               <div key={group.category}>
                 <h3 className="text-sm font-mono text-editor-accent-1 mb-2">
                   {group.category}
