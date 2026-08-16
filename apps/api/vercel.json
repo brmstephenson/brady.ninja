@@ -1,7 +1,6 @@
 {
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm build",
   "framework": "express",
+  "buildCommand": "pnpm build",
   "functions": {
     "src/index.ts": {
       "maxDuration": 10

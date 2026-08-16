@@ -19,6 +19,10 @@
     "webllm"
   ],
   "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
