@@ -2,8 +2,8 @@ import cors from 'cors'
 import express from 'express'
 import { createExpressMiddleware } from '@trpc/server/adapters/express'
 
-import { appRouter, getCurrentResume } from './resume.js'
-import { createContext } from '../trpc.js'
+import { appRouter, getCurrentResume } from './api/resume.js'
+import { createContext } from './trpc.js'
 
 const allowedOrigins = (
   process.env.WEB_ORIGIN ??

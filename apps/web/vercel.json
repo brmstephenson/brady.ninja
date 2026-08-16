@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @brady-ninja/web build",
+  "installCommand": "pnpm --filter @brady-ninja/web... install --frozen-lockfile",
   "framework": "nextjs"
 }
