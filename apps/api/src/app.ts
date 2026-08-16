@@ -2,7 +2,7 @@ import cors from 'cors'
 import express from 'express'
 import { createExpressMiddleware } from '@trpc/server/adapters/express'
 
-import { appRouter, getCurrentResume } from './api/resume.js'
+import { appRouter } from './api/router.js'
 import { createContext } from './trpc.js'
 
 const allowedOrigins = (
@@ -29,21 +29,6 @@ app.use(
 
 app.get(['/health', '/api/health'], (_req, res) => {
   res.json({ ok: true })
-})
-
-app.get(['/resume/current', '/api/resume/current'], async (_req, res, next) => {
-  try {
-    const resume = await getCurrentResume()
-
-    if (!resume) {
-      res.status(404).json({ error: 'Resume content has not been seeded.' })
-      return
-    }
-
-    res.json(resume)
-  } catch (error) {
-    next(error)
-  }
 })
 
 app.use(

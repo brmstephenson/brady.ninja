@@ -21,8 +21,10 @@
     "format": "pnpm -r format",
     "db:studio": "pnpm --filter @brady-ninja/api db:studio",
     "db:generate": "pnpm --filter @brady-ninja/api db:generate",
-    "db:migrate": "pnpm --filter @brady-ninja/api db:migrate",
-    "db:seed": "pnpm --filter @brady-ninja/api db:seed"
+    "db:migrate": "pnpm --filter @brady-ninja/api db:migrate"
   },
-  "packageManager": "pnpm@10.25.0"
+  "packageManager": "pnpm@10.25.0",
+  "engines": {
+    "node": "22.x"
+  }
 }

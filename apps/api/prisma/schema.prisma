@@ -1,72 +1,8 @@
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-model ResumeProfile {
-  id             String             @id @default(cuid())
-  headline       String
-  summary        String
-  resumePdfPath  String?
-  createdAt      DateTime           @default(now())
-  updatedAt      DateTime           @updatedAt
-  experiences    ResumeExperience[]
-  educationItems ResumeEducation[]
-  skillGroups    ResumeSkillGroup[]
-}
-
-model ResumeExperience {
-  id        String       @id @default(cuid())
-  profileId String
-  sortOrder Int
-  dateRange String
-  company   String
-  location  String
-  title     String?
-  bullets   String[]
-  tags      String[]
-  profile   ResumeProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-  roles     ResumeRole[]
-
-  @@index([profileId, sortOrder])
-}
-
-model ResumeRole {
-  id           String           @id @default(cuid())
-  experienceId String
-  sortOrder    Int
-  title        String
-  bullets      String[]
-  tags         String[]
-  experience   ResumeExperience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
-
-  @@index([experienceId, sortOrder])
-}
-
-model ResumeEducation {
-  id        String        @id @default(cuid())
-  profileId String
-  sortOrder Int
-  degree    String
-  school    String
-  location  String
-  year      String
-  profile   ResumeProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-
-  @@index([profileId, sortOrder])
-}
-
-model ResumeSkillGroup {
-  id        String        @id @default(cuid())
-  profileId String
-  sortOrder Int
-  category  String
-  items     String[]
-  profile   ResumeProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-
-  @@index([profileId, sortOrder])
 }
